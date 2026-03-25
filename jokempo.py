@@ -1,5 +1,5 @@
 import random
-
+# Vai ficar com média 3
 print('jokempo!!!')
 
 opcoes = ["Pedra", "Papel", "Tesoura"]
