@@ -24,7 +24,7 @@ for i in range(0, 3):
 
         partidas = partidas + 1
         #novamente = str(input(f'A máquina usou {pc} e você usou {jogador}, você deseja jogar novamente? s/n ').capitalize().strip())
-        aproveitamento = (vitoria / partidas) * 100
+        #aproveitamento = (vitoria / partidas) * 100
         #print(f'\nPontuação: {vitoria}\n Partidas: {partidas}\n Aproveitamento: {aproveitamento:.2f}% \n')
 
     else:
