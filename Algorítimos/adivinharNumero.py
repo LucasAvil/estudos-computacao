@@ -4,7 +4,7 @@ resposta = 'S'
 pontuacao = 0
 print('| Adivinhe o número! |')
 while resposta == 'S':
-    tentativas = 5
+    tentativas = int(input('quantas tentativas quer ter? ').strip())
     num = random.randint(1, 10)
     
     while tentativas > 0:
@@ -23,18 +23,17 @@ while resposta == 'S':
 
     if num == jogador:
         if tentativas >= 1:
-            resposta = str(input(f'você ganhou! ainda sobraram {tentativas} tentativas, jogar novamente? (s/n)').capitalize().strip())
+            resposta = str(input(f'você ganhou! ainda sobraram {tentativas} tentativas, jogar novamente? (s/n) ').capitalize().strip())
         else:
-            resposta = str(input(f'você ganhou na última tentativa! gosta de jogar arriscado né? jogar novamente? (s/n)').capitalize().strip())
+            resposta = str(input(f'você ganhou na última tentativa! gosta de jogar arriscado né? jogar novamente? (s/n) ').capitalize().strip())
             
     else:
-        resposta = str(input(f'Você perdeu!  o numero era {num}!! jogar novamente? (s/n)').capitalize().strip())
+        resposta = str(input(f'Você perdeu!  o numero era {num}!! jogar novamente? (s/n) ').capitalize().strip())
     while resposta not in ['S', 'N']:
-        resposta = str(input('você digitou algo errado, tentar novamente?  (s/n)').capitalize().strip())
-    #pontuacao = pontuacao + 1
+        resposta = str(input('você digitou algo errado, tentar novamente?  (s/n) ').capitalize().strip())
+    pontuacao = pontuacao + 1
     #print(f'Tentativas: {tentativas} \nAcertos: {pontuacao}')
-    #resposta = str(input('Acertou!! quer jogar denovo? (s/n) ').capitalize().strip())
     
 
-#print('Jogo encerrado!')
+print('Jogo encerrado!')
 
