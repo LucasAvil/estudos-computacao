@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+
+<body>
+    <form action="/formulario" method="POST" border="1" style="width: 100%;">
+        <h2>Ficha de Inscrição</h2>
+        <div>
+            <label for="nome">Nome do candidato: </label>
+            <input type="text" name="nome" placeholder="Digite seu nome" size="70">
+        </div>
+        <br>
+        <div>
+            <label for="Endereço">Endereço: </label>
+            <input type="text" name="Endereço" placeholder="Digite o endereço" size="70">
+        </div>
+        <br>
+        <div>
+            <label for="CEP">CEP: </label>
+            <input type="text" name="CEP" placeholder="Digite o CEP" size="30">
+
+
+            <select id="cidade" name="cidade" value="">
+                <option value="comum">
+                    <selected>Cidade</selected>
+                </option>
+                <option value="carazinho">Carazinho</option>
+                <option value="canoas">Canoas</option>
+                <option value="passofundo">Passo Fundo</option>
+            </select>
+
+            <select id="uf" name="uf" value="">
+                <option value="RS">
+                    <selected>Rio Grande do Sul</selected>
+                </option>
+            </select>
+        </div>
+        <div>
+
+        <label for="telefones">Telefones: </label>
+        <input type="text" name="telefone">
+        <input type="text" name="telefone">
+        <input type="text" name="telefone">
+        </div>
+        <div>
+        <label for="rg">RG: </label>
+        <input type="text" name="rg" placeholder="Digite seu RG">
+        <label for="cpf">CPF: </label>
+        <input type="text" name="cpf" placeholder="Digite seu CPF">
+        <label for="sexo">Sexo: </label>
+        <input type="radio" name="sexo" value="Masc.">
+        <label for="Masc.">Masc.</label>
+        <input type="radio" name="sexo" value="Fem.">
+        <label for="Fem.">Fem.</label>
+        </div>
+        <div>
+        <label for="escolaridade">Escolaridade: </label>
+        <select id="escolaridade" name="escolaridade" value="">
+            <option value="comum">
+                <selected>--Selecione--</selected>
+            </option>
+            <option value="medio">Ensino médio completo</option>
+            <option value="medioinc">Ensino médio incompleto</option>
+            <option value="sup">Ensino superior completo</option>
+            <option value="supinc">Ensino superior incompleto</option>
+        </select>
+        <label for="email">Email: </label>
+        <input type="email" name="email" placeholder="Digite seu Email">
+        </div>
+        <div>
+        <label for="curso">Curso: </label>
+        <select id="curso" name="curso" value="">
+            <option value="comum">
+                <selected>--Selecione--</selected>
+            </option>
+            <option value="cc">Ciencia da Computação</option>
+            <option value="medio">Ensino médio</option>
+            <option value="ads">Análise e desenvolvimento de sistemas</option>
+            <option value="nenhum">Nenhum</option>
+        </select>
+        <label for="senha">Senha de acompanhamento: </label>
+        <input type="password" name="senha" placeholder="Digite sua senha">
+        </div>
+        <br><br>
+
+        <label for="botao"></label>
+        <input type="submit" value="Enviar">
+
+    </form>
+
+</body>
+
+</html>
