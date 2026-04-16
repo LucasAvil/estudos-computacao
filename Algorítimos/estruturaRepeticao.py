@@ -218,28 +218,40 @@
 # ==============================================================================
 # ATIVIDADE 13
 # ==============================================================================
+#import random
+#novamente = 'S'
+#while novamente == 'S':
+#    computador = random.randint(1,6)
+#    jogador = random.randint(1,6)
+#    while novamente not in ['S', 'N']:
+#        novamente = str(input('Opção inválida deseja tentar novamente? (S/N) ').strip().capitalize())
+#        
+#    if computador == jogador:
+#        print('EMPATE!')
+#        novamente = str(input('Quer jogar novamente? (S/N) ').strip().capitalize())
+#    elif computador > jogador:
+#        print(f'\nComputador: {computador}\nJogador: {jogador}\nVocê perdeu!')
+#        novamente = str(input('Quer jogar novamente? (S/N) ').strip().capitalize())
+#    else:
+#        print(f'\nComputador: {computador}\nJogador: {jogador}\nVocê ganhou!')
+#        novamente = str(input('Quer jogar novamente? (S/N) ').strip().capitalize())
+#
+#print('Jogo encerrado!')        
+# ==============================================================================
+# ATIVIDADE 14
+# ==============================================================================       
 import random
-novamente = 'S'
-while novamente == 'S':
-    computador = random.randint(1,6)
-    jogador = random.randint(1,6)
-    while novamente not in ['S', 'N']:
-        novamente = str(input('Opção inválida deseja tentar novamente? (S/N) ').strip().capitalize())
-        
-    if computador == jogador:
-        print('EMPATE!')
-        novamente = str(input('Quer jogar novamente? (S/N) ').strip().capitalize())
-    elif computador > jogador:
-        print(f'\nComputador: {computador}\nJogador: {jogador}\nVocê perdeu!')
-        novamente = str(input('Quer jogar novamente? (S/N) ').strip().capitalize())
-    else:
-        print(f'\nComputador: {computador}\nJogador: {jogador}\nVocê ganhou!')
-        novamente = str(input('Quer jogar novamente? (S/N) ').strip().capitalize())
 
-print('Jogo encerrado!')        
-        
+vida_op = 100
+vida_player = 100
+
+pocao_op = 3
+pocao_player = 3
+
+opcao = int(input('Escolha uma opcao: \n1 - Ataque\n2 - Defender\n3 - Curar\n'))
 
 
 
-        
+
+
         
