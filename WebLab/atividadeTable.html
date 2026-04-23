@@ -1,0 +1,123 @@
+<!-- <table> cria a tabela 
+<tr> abre uma linha, dai voce escreve dentro dela as coisa
+<td> e o dado em si, tu abre ele, bota o dado dentro do <tr> e escreve dentro do <td> a informacao, cada td utiliza uma coluna
+<th> é o header, significa que ele vai dar o nome da coluna, ou seja, voce cria uma linha e bota o titulo da coluna dentro do <th>
+o colspan= "{numero}" significa o tanto de colunas que tu quer que aquela informaçao ocupe
+rowspan="{numero}" faz a mesma coisa q o colspan só q pra linhas
+
+    
+    
+    -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+
+<body>
+    <table border="1" style="width: 100%;">
+        <caption> Cadastro de Produtos</caption>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Categoria</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Arroz</td>
+                <td>Alimento</td>
+                <td>R$ 25,00</td>
+
+            </tr>
+            <tr>
+                <td>Shampoo</td> 
+                <td>Higiene</td>
+                <td>R$ 18,00</td>
+            </tr>
+            <tr>
+                <td>Café</td>
+                <td>Alimento</td>
+                <td>R$ 15,00</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <br><br><br><br><br>
+    <table border="1" style="width: 100%;">
+        <caption>Horário Escolar</caption>
+        <thead>
+            <tr>
+                <th>Horário</th>
+                <th>Segunda</th>
+                <th>Terça</th>
+                <th>Quarta</th>
+                <th>Quinta</th>
+                <th>Sexta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>19:20 - 20:50</td>
+                <td>Robótica Computacional</td>
+                <td>Algorítimos de programação</td>
+                <td>WebLab</td>
+                <td>Fundamentos da Inteligência Artificial</td>
+                <td rowspan="4">Folga</td>
+            </tr>
+            <tr>
+                <td>20:50 - 21:10</td>
+                <td colspan="5">Intervalo</td>
+            </tr>
+            <tr>
+                <td>21:10 - 22:00</td>
+                <td>Robótica Computacional</td>
+                <td>Algorítimos de programação</td>
+                <td>WebLab</td>
+                <td>Fundamentos da Inteligência Artificial</td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br><br><br><br>
+    <table border="1" style="width: 100%;">
+        <caption>Boletim Escolar</caption>
+        <thead>
+            <tr>
+                <th>Nome do Aluno</th>
+                <th>Robótica Computacional</th>
+                <th>Algorítimos de Programação</th>
+                <th>Média</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Pedro</td>
+                <td>5,0</td>
+                <td>8,0</td>
+                <td>6,5</td>
+            </tr>
+            <tr>
+                <td>Lucas</td>
+                <td>7,8</td>
+                <td>6,5</td>
+                <td>7,1</td>
+            </tr>
+            <tr>
+                <td>Mateus</td>
+                <td>8,5</td>
+                <td>7,5</td>
+                <td>8</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+</body>
+
+</html>

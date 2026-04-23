@@ -114,32 +114,144 @@
 # ==============================================================================
 # ATIVIDADE 9
 # ==============================================================================
-novamente = 'S'
-while novamente == 'S':
-    
-    menu = int(input('=== Calculadora === \n 1 - Soma \n 2 - Subtração \n 3 - Divisão \n 4 - Multiplicação \n 0 - Sair \n').strip())
-    if menu in [0, 1, 2, 3, 4]:
-        if menu == 0:
-            break    
-        num1 = float(input('Digite o primeiro numero: '))
-        num2 = float(input('Digite o segundo numero: '))
-        if menu == 1:
-            print(f'A soma deu: {num1 + num2}')
-        elif menu == 2:
-            print(f'A subtração deu: {num1 - num2}')
-        elif menu == 3:
-            print(f'A divisão deu: {num1 / num2}')        
-        elif menu == 4:
-            print(f'A multiplicação deu: {num1 * num2}')
-        novamente = str(input('Quer fazer um novo calculo? (s/n)').capitalize().strip())
-    else:
-        novamente = str(input('Opção inválida, quer tentar novamente? (s/n)').capitalize().strip())
-        
-    
-    while novamente not in ['S', 'N']:
-        novamente = str(input('Você escreveu algo errado, quer tentar novamente? (s/n)').capitalize().strip())
-        
-print('Calculadora encerrada')
+#novamente = 'S'
+#while novamente == 'S':
+#    
+#    menu = int(input('=== Calculadora === \n 1 - Soma \n 2 - Subtração \n 3 - Divisão \n 4 - Multiplicação \n 0 - Sair \n').strip())
+#    if menu in [0, 1, 2, 3, 4]:
+#        if menu == 0:
+#            break    
+#        num1 = float(input('Digite o primeiro numero: '))
+#        num2 = float(input('Digite o segundo numero: '))
+#        if menu == 1:
+#            print(f'A soma deu: {num1 + num2}')
+#        elif menu == 2:
+#            print(f'A subtração deu: {num1 - num2}')
+#        elif menu == 3:
+#            print(f'A divisão deu: {num1 / num2}')        
+#        elif menu == 4:
+#            print(f'A multiplicação deu: {num1 * num2}')
+#        novamente = str(input('Quer fazer um novo calculo? (s/n)').capitalize().strip())
+#    else:
+#        novamente = str(input('Opção inválida, quer tentar novamente? (s/n)').capitalize().strip())
+#        
+#    
+#    while novamente not in ['S', 'N']:
+#        novamente = str(input('Você escreveu algo errado, quer tentar novamente? (s/n)').capitalize().strip())
+#        
+#print('Calculadora encerrada')
+# ==============================================================================
+# ATIVIDADE 10
+# ==============================================================================
+#st = 0
+#val = 0
+#vel = int(input("Selecione a velocidade desejada (300, 600 ou 1000 Mbps) ").strip())
+#
+#while vel not in [300, 600, 1000]:
+#    vel = int(input("Digite uma opção válida (300, 600 ou 1000 Mbps)").strip())
+#
+#streaming = str(input("Deseja adicionar streaming? (S/N)").capitalize().strip())
+#
+#cli = float(input("É cliente a quantos meses? ").strip())
+#
+#if vel == 300:
+#    val += 79.90
+#   
+#elif vel == 600:
+#    val += 109.90
+#
+#elif vel == 1000:
+#    val += 129.90
+#
+#if streaming == "S":
+#    st = 19.90
+#    val += 19.90
+#
+#if cli > 6:
+#    val - val / 10
+#
+#
+#print(f'Você selecionou o plano de {vel}Mb\nAdicional R${st} \n Desconto: Total: R${val / 10}\nR${val} ')
+# ==============================================================================
+# ATIVIDADE 11
+# ==============================================================================
+#mensal = float(input("digite o valor "))
+#mes = int(input("digite a quantidade de meses: ").strip())
+#saldo = 0
+#for i in range (mes):
+#    saldo += mensal
+#    print(f'Mes {i+1}: Saldo acumulado = R${saldo}')
+# ==============================================================================
+# ATIVIDADE 12
+# ==============================================================================    
+#opcao = 0
+#estoque = 10
+#while opcao != 4:
+#    
+#    opcao = int(input('Escolha uma opcão\n1 - Adicionar unidades\n2 - Remover unidades\n3 - Exibir estoque\n4 - Sair\nDigite a opcão desejada: ').strip())
+#    if opcao == 1:
+#        quant = int(input('Quantas unidades deseja adicionar? ').strip())
+#        estoque += quant
+#        if estoque > 10 or estoque < 0:
+#            print('Valor inválido! Estoque não pode ser maior que 10 ou menor que 0!')
+#            estoque -= quant
+#        else:    
+#            print('\nUnidades adicionadas com sucesso.\n')
+#        
+#    
+#    if opcao == 2:
+#        quant = int(input('Quantas unidades deseja remover? ').strip())
+#        estoque -= quant
+#        if estoque > 10 or estoque < 0:
+#            print('Valor inválido! Estoque não pode ser maior que 10 ou menor que 0!')
+#            estoque += quant
+#        else:
+#            print('\nUnidades removidas com sucesso.\n')
+#   
+#    if opcao == 3:
+#        print(f'Estoque: {estoque}')
+#    
+#    while opcao not in [1, 2, 3, 4]:
+#        opcao = int(input('Opcão inválida! digite 1 para tentar novamente: ').strip())
+#        continue
+#print(f'Encerrando...')
+# ==============================================================================
+# ATIVIDADE 13
+# ==============================================================================
+#import random
+#novamente = 'S'
+#while novamente == 'S':
+#    computador = random.randint(1,6)
+#    jogador = random.randint(1,6)
+#    while novamente not in ['S', 'N']:
+#        novamente = str(input('Opção inválida deseja tentar novamente? (S/N) ').strip().capitalize())
+#        
+#    if computador == jogador:
+#        print('EMPATE!')
+#        novamente = str(input('Quer jogar novamente? (S/N) ').strip().capitalize())
+#    elif computador > jogador:
+#        print(f'\nComputador: {computador}\nJogador: {jogador}\nVocê perdeu!')
+#        novamente = str(input('Quer jogar novamente? (S/N) ').strip().capitalize())
+#    else:
+#        print(f'\nComputador: {computador}\nJogador: {jogador}\nVocê ganhou!')
+#        novamente = str(input('Quer jogar novamente? (S/N) ').strip().capitalize())
+#
+#print('Jogo encerrado!')        
+# ==============================================================================
+# ATIVIDADE 14
+# ==============================================================================       
+import random
 
-        
+vida_op = 100
+vida_player = 100
+
+pocao_op = 3
+pocao_player = 3
+
+opcao = int(input('Escolha uma opcao: \n1 - Ataque\n2 - Defender\n3 - Curar\n'))
+
+
+
+
+
         
