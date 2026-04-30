@@ -240,18 +240,27 @@
 # ==============================================================================
 # ATIVIDADE 14
 # ==============================================================================       
+#continuada no arquivo "heroidaluz.py" por ser legal demais e receber mudanças no futuro
+# ==============================================================================
+# ATIVIDADE 15 -- Atividade de dicionarios feita por conta própria
+# ============================================================================== 
 import random
-
-vida_op = 100
-vida_player = 100
-
-pocao_op = 3
-pocao_player = 3
-
-opcao = int(input('Escolha uma opcao: \n1 - Ataque\n2 - Defender\n3 - Curar\n'))
+loja = [
+    {"nome": "Facão", "dano": 30, "custo": 25, "descricao": "Corta o inimigo com uma faconada!!"},
+    {"nome": "Cajado", "dano": 45, "custo": 55, "descricao": "Atinge os inimigos com um ataque mágico!"},
+    {"nome": "Arco", "dano": 40, "custo": 40, "descricao": "Atinge os inimigos a distância com uma flecha!"},
+    {"nome": "Bodoque", "dano": 35, "custo": 35, "descricao": "Joga uma pedra na cabeça do adversário! útil para matar passarinhos!"},
+    {"nome": "Poção", "dano": 40, "custo": 15, "descricao": "Cura em 40 de Hp, tem gosto de morango"}
 
 
+]
+print('-='*20)
+print('                 LOJA')
+print('-='*20)
+itens_sorteados = random.sample(loja, 3)
+
+for item in itens_sorteados:
+    print(f"{item['nome']:<10} ${item['custo']:<5} {item['dano']}HP    {item['descricao']}")
 
 
-
-        
+    

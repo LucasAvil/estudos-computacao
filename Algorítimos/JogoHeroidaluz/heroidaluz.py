@@ -69,6 +69,8 @@ class entidade:
         if inimigo.nome in ["Rato mutante", "Mosca atômica", "Formiga atômica", "Amalgamação", "Marcelo maligno"]:
             if inimigo.nome in ["Enguia", "Mosca atômica", "Amalgamação"]:
                 print(f'Habilidade especial: 20% de chance no ataque de te paralisar por um turno')
+    
+        
 
     
 def sortear_inimigo(caminho_arquivo):
