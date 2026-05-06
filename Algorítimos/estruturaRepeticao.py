@@ -240,84 +240,9 @@
 # ==============================================================================
 # ATIVIDADE 14
 # ==============================================================================       
-#continuada no arquivo "heroidaluz.py" por ser legal demais e receber mudanças no futuro
-# ==============================================================================
-# ATIVIDADE 15 -- Atividade de dicionarios feita por conta própria
-# ============================================================================== 
-#import random
-#loja = [
-#    {"nome": "Facão", "dano": 30, "custo": 25, "descricao": "Corta o inimigo com uma faconada!!"},
-#    {"nome": "Cajado", "dano": 45, "custo": 55, "descricao": "Atinge os inimigos com um ataque mágico!"},
-#    {"nome": "Arco", "dano": 40, "custo": 40, "descricao": "Atinge os inimigos a distância com uma flecha!"},
-#    {"nome": "Bodoque", "dano": 35, "custo": 35, "descricao": "Joga uma pedra na cabeça do adversário! útil para matar passarinhos!"},
-#    {"nome": "Poção", "dano": 40, "custo": 15, "descricao": "Cura em 40 de Hp, tem gosto de morango"}
-#
-#
-#]
-#print('-='*20)
-#print('                 LOJA')
-#print('-='*20)
-#itens_sorteados = random.sample(loja, 3)
-#
-#for item in itens_sorteados:
-#    print(f"{item['nome']:<10} ${item['custo']:<5} {item['dano']}HP    {item['descricao']}")
-#x = 1
-#while True:
-#    try:
-#        qnt_nomes = int(input("digite a quantidade de nomes: "))
-#        lista_nomes = []
-#        if qnt_nomes < 0:
-#            print("numeros negativos sao invalidos!!")
-#           continue
-#        for i in range (qnt_nomes):
-#            nome = str(input(f'digite o nome de numero {i + 1}: '))
-#            lista_nomes.append(nome)
-#        break
-#    except:
-#        ValueError
-#        print("valor invalido!")
-#
-#lista_nomes.reverse()
-#for nome in lista_nomes:
-#    print(f'{x} - {nome}')
-#    x += 1
-#    
-#excl = int(input("digite o numero do nome que você quer apagar: "))
-#x = 1
-#lista_nomes.pop(excl - 1)
-#
-#for nome in lista_nomes:
-#    print(f'{x} - {nome}')
-#    x += 1
-####################################################
-banco_dados = []
 
-dado_1 = {
-    'nome': str(input('Digite seu nome: ')),
-    'sobrenome': input('digite o seu sobrenome: '),
-    'data_nascimento': input('digite sua data de nascimento: '),
-    'telefones': [input('digite o primeiro telefone: '), input('digite o segundo telefone: ')],
-    'endereco': {'rua': input('digite a sua rua: '), 'bairro': input('digite o seu bairro: '), 'cidade': input('digite a sua cidade: ')}
-        }
-dado_2 = {
-    'nome': str(input('Digite seu nome: ')),
-    'sobrenome': input('digite o seu sobrenome: '),
-    'data_nascimento': input('digite sua data de nascimento: '),
-    'telefones': [input('digite o primeiro telefone: '), input('digite o segundo telefone: ')],
-    'endereco': {'rua': input('digite a sua rua: '), 'bairro': input('digite o seu bairro: '), 'cidade': input('digite a sua cidade: ')}
-        }
 
-dado_3 = {
-    'nome': str(input('Digite seu nome: ')),
-    'sobrenome': input('digite o seu sobrenome: '),
-    'data_nascimento': input('digite sua data de nascimento: '),
-    'telefones': [input('digite o primeiro telefone: '), input('digite o segundo telefone: ')],
-    'endereco': {'rua': input('digite a sua rua: '), 'bairro': input('digite o seu bairro: '), 'cidade': input('digite a sua cidade: ')}
-        }
 
-banco_dados.append(dado_1)
-banco_dados.append(dado_2)
-banco_dados.append(dado_3)
 
-print(banco_dados)
 
+        
