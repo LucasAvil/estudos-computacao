@@ -261,25 +261,6 @@
 #
 #for item in itens_sorteados:
 #    print(f"{item['nome']:<10} ${item['custo']:<5} {item['dano']}HP    {item['descricao']}")
-<<<<<<< HEAD
-# ==============================================================================
-# ATIVIDADE 16 -- Atividade de sets feita por conta própria
-# ==============================================================================
-# nos sets os valores repetidos sao excluidos
-# A ordem sempre é aleatória
-#loja = ["Facão", 30,  25, "Corta o inimigo com uma faconada!!", 30, 25, "Facão"]
-#
-#
-#loja_unica = list(set(loja))
-#
-#loja_set = {"Facão", 30,  25, "Corta o inimigo com uma faconada!!", 30, 25, "Facão"}
-#print(loja_unica)
-#print(loja_set )
-####   
-t = int(input())
-pr_link = (t * 2) * 2
-print(pr_link) 
-=======
 #x = 1
 #while True:
 #    try:
@@ -339,5 +320,3 @@ banco_dados.append(dado_2)
 banco_dados.append(dado_3)
 
 print(banco_dados)
-
->>>>>>> bc282bbab457ca42ed79a63c0c788134aedf0b8b
