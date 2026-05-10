@@ -3,6 +3,16 @@
 import random
 import time
 
+itens_loja = [
+    {"nome": "Facão", "dano": 30, "custo": 25, "descricao": "Corta o inimigo com uma faconada!!"},
+    {"nome": "Cajado", "dano": 45, "custo": 55, "descricao": "Atinge os inimigos com um ataque mágico!"},
+    {"nome": "Arco", "dano": 40, "custo": 40, "descricao": "Atinge os inimigos a distância com uma flecha!"},
+    {"nome": "Bodoque", "dano": 35, "custo": 35, "descricao": "Joga uma pedra na cabeça do adversário! útil para matar passarinhos!"},
+    {"nome": "Poção", "dano": 40, "custo": 15, "descricao": "Cura em 40 de Hp, tem gosto de morango"}
+    ]
+inv = [
+    {"nome": "punho", "dano": 20, "descricao": "Par de punhos laváveis e levemente fortes"}
+]
 class entidade:
     def __init__(self, nome):
         self.nome = nome
@@ -61,6 +71,7 @@ class entidade:
         print(f'-='*20, '\n         INVENTÁRIO')
         print(f'Vida: {self.vida}HP\nPoções: {self.pocoes}\n')
         print(f'LV: {lvl_tot}\nXP: {xp_tot}XP\nOuro: {ouro_tot}$')
+        print(f"Arma: {inv['nome']:<10} ${inv['custo']:<5} {inv['dano']}HP    {inv['descricao']}")
         print(f'-='*20)
 
     def checar(self, inimigo):
@@ -71,8 +82,31 @@ class entidade:
                 print(f'Habilidade especial: 20% de chance no ataque de te paralisar por um turno')
     
         
-
+    def loja(self):
+        i = 1
+        print('-='*20)
+        print('                 LOJA')
+        print('-='*20)
+        itens_sorteados = random.sample(itens_loja, 3)
+        
+        for item in itens_sorteados:
+            print(f"{i} - {item['nome']:<10} ${item['custo']:<5} {item['dano']}HP    {item['descricao']}")
+            i += 1
+        print(f"4 - Sair")
+        selecionar_item_loja = int(input("Selecione o numero do item que deseja comprar: ").strip())
+        while selecionar_item_loja not in [1, 2, 3, 4]:
+            print("Opção inválida!")
+            selecionar_item_loja = int(input("Selecione o numero do item que deseja comprar: ").strip())
+        for item in itens_sorteados:
+            if selecionar_item_loja == itens_sorteados[item] - 1 and itens_sorteados[selecionar_item_loja - 1]['nome'] != 'Poção' :
+                inv.pop[0]
+                inv.append[itens_sorteados[item]]
+            elif selecionar_item_loja == 4:
+                break
+            if itens_sorteados[selecionar_item_loja - 1]['nome'] == 'Poção':
+                self.pocoes += 1
     
+
 def sortear_inimigo(caminho_arquivo):
     with open(caminho_arquivo, 'r', encoding='utf-8') as arquivo:
         linhas = arquivo.readlines()
@@ -161,6 +195,8 @@ while newgame == 'S':
             while novamente not in ['S', 'N']:
                 print('Opção inválida!')
                 novamente = str(input('Jogar novamente? (S/N)').capitalize().strip())
+            jogador.loja()
+            
         else: 
             print(f'Nãoooo você morreuuu!!')
             break

@@ -244,23 +244,37 @@
 # ==============================================================================
 # ATIVIDADE 15 -- Atividade de dicionarios feita por conta própria
 # ============================================================================== 
-import random
-loja = [
-    {"nome": "Facão", "dano": 30, "custo": 25, "descricao": "Corta o inimigo com uma faconada!!"},
-    {"nome": "Cajado", "dano": 45, "custo": 55, "descricao": "Atinge os inimigos com um ataque mágico!"},
-    {"nome": "Arco", "dano": 40, "custo": 40, "descricao": "Atinge os inimigos a distância com uma flecha!"},
-    {"nome": "Bodoque", "dano": 35, "custo": 35, "descricao": "Joga uma pedra na cabeça do adversário! útil para matar passarinhos!"},
-    {"nome": "Poção", "dano": 40, "custo": 15, "descricao": "Cura em 40 de Hp, tem gosto de morango"}
-
-
-]
-print('-='*20)
-print('                 LOJA')
-print('-='*20)
-itens_sorteados = random.sample(loja, 3)
-
-for item in itens_sorteados:
-    print(f"{item['nome']:<10} ${item['custo']:<5} {item['dano']}HP    {item['descricao']}")
-
-
-    
+#import random
+#loja = [
+#    {"nome": "Facão", "dano": 30, "custo": 25, "descricao": "Corta o inimigo com uma faconada!!"},
+#    {"nome": "Cajado", "dano": 45, "custo": 55, "descricao": "Atinge os inimigos com um ataque mágico!"},
+#    {"nome": "Arco", "dano": 40, "custo": 40, "descricao": "Atinge os inimigos a distância com uma flecha!"},
+#    {"nome": "Bodoque", "dano": 35, "custo": 35, "descricao": "Joga uma pedra na cabeça do adversário! útil para matar passarinhos!"},
+#    {"nome": "Poção", "dano": 40, "custo": 15, "descricao": "Cura em 40 de Hp, tem gosto de morango"}
+#
+#
+#]
+#print('-='*20)
+#print('                 LOJA')
+#print('-='*20)
+#itens_sorteados = random.sample(loja, 3)
+#
+#for item in itens_sorteados:
+#    print(f"{item['nome']:<10} ${item['custo']:<5} {item['dano']}HP    {item['descricao']}")
+# ==============================================================================
+# ATIVIDADE 16 -- Atividade de sets feita por conta própria
+# ==============================================================================
+# nos sets os valores repetidos sao excluidos
+# A ordem sempre é aleatória
+#loja = ["Facão", 30,  25, "Corta o inimigo com uma faconada!!", 30, 25, "Facão"]
+#
+#
+#loja_unica = list(set(loja))
+#
+#loja_set = {"Facão", 30,  25, "Corta o inimigo com uma faconada!!", 30, 25, "Facão"}
+#print(loja_unica)
+#print(loja_set )
+####   
+t = int(input())
+pr_link = (t * 2) * 2
+print(pr_link) 
