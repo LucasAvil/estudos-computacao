@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula CSS — Cores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <h1>CSS — Cores</h1>
+    <p class="subtitulo">Named colors, HEX, RGB, RGBA, HSL, HSLA e variáveis CSS</p>
+  </header>
+
+  <main class="conteudo">
+
+    <!-- Named colors -->
+    <section class="card">
+      <h2>1. Named Colors — Cores por nome</h2>
+      <p>O CSS reconhece <strong>140+ cores</strong> pelo nome em inglês. Simples de usar, mas limitadas.</p>
+
+      <div class="grade-cores">
+        <div class="amostra" style="background: tomato;"><span>tomato</span></div>
+        <div class="amostra" style="background: steelblue;"><span>steelblue</span></div>
+        <div class="amostra" style="background: mediumseagreen;"><span>mediumseagreen</span></div>
+        <div class="amostra" style="background: gold; color: #333;"><span>gold</span></div>
+        <div class="amostra" style="background: orchid;"><span>orchid</span></div>
+        <div class="amostra" style="background: coral;"><span>coral</span></div>
+        <div class="amostra" style="background: darkslategray;"><span>darkslategray</span></div>
+        <div class="amostra" style="background: lightsalmon; color: #333;"><span>lightsalmon</span></div>
+      </div>
+
+      <div class="bloco-codigo">
+        <pre>color: tomato;
+background-color: steelblue;
+border-color: gold;</pre>
+      </div>
+    </section>
+
+    <!-- HEX -->
+    <section class="card">
+      <h2>2. Hexadecimal — <code>#RRGGBB</code></h2>
+      <p>Formato de 6 dígitos hexadecimais representando vermelho (R), verde (G) e azul (B). Cada canal vai de <code>00</code> a <code>FF</code>. Pode ter 8 dígitos para incluir opacidade: <code>#RRGGBBAA</code>.</p>
+
+      <div class="grade-cores">
+        <div class="amostra hex-vermelho"><code>#e53e3e</code><span>Vermelho</span></div>
+        <div class="amostra hex-verde"><code>#38a169</code><span>Verde</span></div>
+        <div class="amostra hex-azul"><code>#3182ce</code><span>Azul</span></div>
+        <div class="amostra hex-amarelo"><code>#d69e2e</code><span>Amarelo</span></div>
+        <div class="amostra hex-roxo"><code>#805ad5</code><span>Roxo</span></div>
+        <div class="amostra hex-preto"><code>#1a202c</code><span>Quase preto</span></div>
+        <div class="amostra hex-cinza"><code>#718096</code><span>Cinza</span></div>
+        <div class="amostra hex-branco"><code>#f7fafc</code><span>Quase branco</span></div>
+      </div>
+
+      <div class="explicacao-hex">
+        <h3>Como funciona?</h3>
+        <div class="canal-hex">
+          <div class="canal" style="background:#e53e3e;">#<strong>e5</strong>3e3e = R:229</div>
+          <div class="canal" style="background:#38a169;">##38<strong>a1</strong>69 = G:161</div>
+          <div class="canal" style="background:#3182ce;">#3182<strong>ce</strong> = B:206</div>
+        </div>
+        <p class="dica">💡 <code>#FFF</code> é o mesmo que <code>#FFFFFF</code> (forma abreviada com 3 dígitos)</p>
+      </div>
+    </section>
+
+    <!-- RGB -->
+    <section class="card">
+      <h2>3. RGB — <code>rgb(R, G, B)</code></h2>
+      <p>Valores de 0 a 255 para cada canal. Mais legível que HEX para quem está aprendendo.</p>
+
+      <div class="grade-cores">
+        <div class="amostra" style="background: rgb(255,0,0);"><code>rgb(255,0,0)</code><span>Vermelho puro</span></div>
+        <div class="amostra" style="background: rgb(0,255,0); color:#333;"><code>rgb(0,255,0)</code><span>Verde puro</span></div>
+        <div class="amostra" style="background: rgb(0,0,255);"><code>rgb(0,0,255)</code><span>Azul puro</span></div>
+        <div class="amostra" style="background: rgb(255,165,0); color:#333;"><code>rgb(255,165,0)</code><span>Laranja</span></div>
+        <div class="amostra" style="background: rgb(128,0,128);"><code>rgb(128,0,128)</code><span>Roxo</span></div>
+        <div class="amostra" style="background: rgb(0,0,0);"><code>rgb(0,0,0)</code><span>Preto</span></div>
+        <div class="amostra" style="background: rgb(255,255,255); color:#333; border:1px solid #e2e8f0;"><code>rgb(255,255,255)</code><span>Branco</span></div>
+        <div class="amostra" style="background: rgb(128,128,128);"><code>rgb(128,128,128)</code><span>Cinza</span></div>
+      </div>
+    </section>
+
+    <!-- RGBA -->
+    <section class="card">
+      <h2>4. RGBA — <code>rgba(R, G, B, A)</code></h2>
+      <p>Igual ao RGB, mas com um 4º canal: <strong>Alpha</strong> (opacidade), de <code>0</code> (invisível) a <code>1</code> (opaco). Essencial para overlays e transparências.</p>
+
+      <div class="demo-rgba">
+        <div class="fundo-listrado">
+          <div class="caixa-rgba" style="background: rgba(49,130,206, 0.9);">rgba(49,130,206, <strong>0.9</strong>)</div>
+          <div class="caixa-rgba" style="background: rgba(49,130,206, 0.6);">rgba(49,130,206, <strong>0.6</strong>)</div>
+          <div class="caixa-rgba" style="background: rgba(49,130,206, 0.3);">rgba(49,130,206, <strong>0.3</strong>)</div>
+          <div class="caixa-rgba" style="background: rgba(49,130,206, 0.1); color:#2d3748;">rgba(49,130,206, <strong>0.1</strong>)</div>
+        </div>
+      </div>
+
+      <p class="dica-card">Muito usado em <strong>overlays escuros sobre imagens</strong>, sombras semi-transparentes e modais.</p>
+    </section>
+
+    <!-- HSL -->
+    <section class="card">
+      <h2>5. HSL — <code>hsl(H, S%, L%)</code></h2>
+      <p><strong>H</strong>ue (matiz 0-360°), <strong>S</strong>aturation (saturação) e <strong>L</strong>ightness (luminosidade). Muito mais intuitivo para criar paletas de cores!</p>
+
+      <div class="roda-matiz">
+        <div class="amostra-hsl" style="background: hsl(0,   80%, 55%);">  hsl(0°)</div>
+        <div class="amostra-hsl" style="background: hsl(30,  80%, 55%);">  hsl(30°)</div>
+        <div class="amostra-hsl" style="background: hsl(60,  80%, 50%); color:#333;">  hsl(60°)</div>
+        <div class="amostra-hsl" style="background: hsl(90,  80%, 40%);">  hsl(90°)</div>
+        <div class="amostra-hsl" style="background: hsl(120, 80%, 35%);">  hsl(120°)</div>
+        <div class="amostra-hsl" style="background: hsl(180, 80%, 35%);">  hsl(180°)</div>
+        <div class="amostra-hsl" style="background: hsl(210, 80%, 50%);">  hsl(210°)</div>
+        <div class="amostra-hsl" style="background: hsl(270, 80%, 55%);">  hsl(270°)</div>
+        <div class="amostra-hsl" style="background: hsl(300, 80%, 50%);">  hsl(300°)</div>
+        <div class="amostra-hsl" style="background: hsl(330, 80%, 55%);">  hsl(330°)</div>
+        <div class="amostra-hsl" style="background: hsl(360, 80%, 55%);">  hsl(360°)</div>
+      </div>
+
+      <h3 class="subtitulo-secao">Variando saturação — hsl(210, S%, 50%)</h3>
+      <div class="variacao-linha">
+        <div class="amostra-hsl" style="background: hsl(210, 0%,  50%);">S: 0%</div>
+        <div class="amostra-hsl" style="background: hsl(210, 25%, 50%);">S: 25%</div>
+        <div class="amostra-hsl" style="background: hsl(210, 50%, 50%);">S: 50%</div>
+        <div class="amostra-hsl" style="background: hsl(210, 75%, 50%);">S: 75%</div>
+        <div class="amostra-hsl" style="background: hsl(210, 100%,50%);">S: 100%</div>
+      </div>
+
+      <h3 class="subtitulo-secao">Variando luminosidade — hsl(210, 80%, L%)</h3>
+      <div class="variacao-linha">
+        <div class="amostra-hsl" style="background: hsl(210, 80%, 10%);">L: 10%</div>
+        <div class="amostra-hsl" style="background: hsl(210, 80%, 30%);">L: 30%</div>
+        <div class="amostra-hsl" style="background: hsl(210, 80%, 50%);">L: 50%</div>
+        <div class="amostra-hsl" style="background: hsl(210, 80%, 70%); color:#333;">L: 70%</div>
+        <div class="amostra-hsl" style="background: hsl(210, 80%, 90%); color:#333;">L: 90%</div>
+      </div>
+    </section>
+
+    <!-- HSLA -->
+    <section class="card">
+      <h2>6. HSLA — <code>hsla(H, S%, L%, A)</code></h2>
+      <p>HSL com canal Alpha. Mesmo conceito do RGBA, mas escrito em formato HSL.</p>
+
+      <div class="demo-rgba">
+        <div class="fundo-listrado">
+          <div class="caixa-rgba" style="background: hsla(270,80%,50%,0.9);">hsla(270,80%,50%, <strong>0.9</strong>)</div>
+          <div class="caixa-rgba" style="background: hsla(270,80%,50%,0.6);">hsla(270,80%,50%, <strong>0.6</strong>)</div>
+          <div class="caixa-rgba" style="background: hsla(270,80%,50%,0.3);">hsla(270,80%,50%, <strong>0.3</strong>)</div>
+          <div class="caixa-rgba" style="background: hsla(270,80%,50%,0.1); color:#2d3748;">hsla(270,80%,50%, <strong>0.1</strong>)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Variáveis CSS -->
+    <section class="card">
+      <h2>7. Variáveis CSS — <code>var(--nome)</code></h2>
+      <p>Defina cores em um lugar e reutilize em todo o CSS. Facilita a manutenção e a criação de temas.</p>
+
+      <div class="bloco-codigo">
+        <pre>/* Definindo no seletor :root (global) */
+:root {
+  --cor-primaria:  hsl(210, 80%, 50%);
+  --cor-secundaria: hsl(270, 80%, 55%);
+  --cor-fundo:      hsl(210, 30%, 97%);
+  --cor-texto:      hsl(210, 30%, 20%);
+}
+
+/* Usando em qualquer lugar */
+.botao {
+  background-color: var(--cor-primaria);
+  color: white;
+}
+
+h1 {
+  color: var(--cor-secundaria);
+}</pre>
+      </div>
+
+      <div class="demo-variaveis">
+        <button class="btn-primario">Botão Primário</button>
+        <button class="btn-secundario">Botão Secundário</button>
+        <div class="cartao-var">
+          <h3>Cartão com variáveis</h3>
+          <p>Todas as cores deste cartão vêm de variáveis CSS definidas no <code>:root</code>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabela resumo -->
+    <section class="card">
+      <h2>Resumo dos formatos de cor</h2>
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>Formato</th>
+            <th>Exemplo</th>
+            <th>Suporta transparência</th>
+            <th>Quando usar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Named</td><td><code>tomato</code></td><td>Não</td><td>Prototipagem rápida</td></tr>
+          <tr><td>HEX</td><td><code>#e53e3e</code></td><td>Com 8 dígitos</td><td>Cores copiadas de ferramentas de design</td></tr>
+          <tr><td>RGB</td><td><code>rgb(229,62,62)</code></td><td>Não</td><td>Quando os valores são calculados</td></tr>
+          <tr><td>RGBA</td><td><code>rgba(229,62,62,0.5)</code></td><td>Sim</td><td>Overlays, sombras, transparências</td></tr>
+          <tr><td>HSL</td><td><code>hsl(0,80%,57%)</code></td><td>Não</td><td>Criação de paletas de cores</td></tr>
+          <tr><td>HSLA</td><td><code>hsla(0,80%,57%,0.5)</code></td><td>Sim</td><td>Paletas com transparência</td></tr>
+          <tr><td>var()</td><td><code>var(--cor-primaria)</code></td><td>Depende do valor</td><td>Sistemas de design, temas</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <p>Aula 02 — Desenvolvimento Web &bull; Ciência da Computação</p>
+  </footer>
+
+</body>
+</html>

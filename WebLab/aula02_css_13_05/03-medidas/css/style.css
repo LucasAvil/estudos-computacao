@@ -1,0 +1,319 @@
+/* =============================================
+   AULA CSS — MEDIDAS E UNIDADES
+   ============================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px; /* base para rem */
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #f0f4f8;
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+/* ---- Cabeçalho ---- */
+.cabecalho {
+  background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+  color: white;
+  text-align: center;
+  padding: 48px 20px;
+}
+
+.cabecalho h1 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.subtitulo {
+  font-weight: 300;
+  opacity: 0.85;
+}
+
+/* ---- Layout ---- */
+.conteudo {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ---- Card ---- */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+
+.card.destaque {
+  border-top: 4px solid #2b6cb0;
+}
+
+.card h2 {
+  font-size: 1.4rem;
+  color: #2b6cb0;
+  border-bottom: 2px solid #bee3f8;
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+
+.card > p {
+  color: #4a5568;
+  margin-bottom: 16px;
+}
+
+code {
+  background: #ebf8ff;
+  color: #2b6cb0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.88em;
+}
+
+/* ---- Dois blocos lado a lado ---- */
+.dois-blocos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .dois-blocos { grid-template-columns: 1fr; }
+}
+
+.bloco-tipo {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.bloco-tipo h3 {
+  color: #2d3748;
+  margin-bottom: 8px;
+}
+
+.bloco-tipo ul {
+  padding-left: 18px;
+  margin-top: 8px;
+}
+
+.bloco-tipo li {
+  margin: 4px 0;
+}
+
+/* ---- Barras de exemplo ---- */
+.barra {
+  height: 36px;
+  color: white;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  border-radius: 4px;
+  margin: 6px 0;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.exemplos-px {
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+/* ---- em demo ---- */
+.demo-em {
+  background: #fffaf0;
+  border: 1px solid #fbd38d;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.pai-em {
+  font-size: 16px;
+  color: #744210;
+}
+
+.filho-em {
+  font-size: 1.5em;
+  color: #c05621;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+
+.neto-em {
+  font-size: 1.5em;
+  color: #9c4221;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+
+/* ---- rem demo ---- */
+.demo-rem {
+  background: #f0fff4;
+  border: 1px solid #9ae6b4;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+/* ---- Comparação em vs rem ---- */
+.comparacao {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.comp-item {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.comp-item h4 {
+  font-size: 0.9rem;
+  color: #4a5568;
+  margin-bottom: 8px;
+}
+
+/* ---- % demo ---- */
+.container-pai {
+  background: #e2e8f0;
+  border-radius: 8px;
+  padding: 12px;
+  position: relative;
+}
+
+.label-pai {
+  display: block;
+  font-size: 0.8rem;
+  color: #718096;
+  margin-bottom: 8px;
+}
+
+.barra-pct {
+  height: 32px;
+  color: white;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  border-radius: 4px;
+  margin: 4px 0;
+}
+
+/* ---- vw demo ---- */
+.demo-vw {
+  overflow-x: auto;
+}
+
+.barra-vw {
+  height: 36px;
+  color: white;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  border-radius: 4px;
+  margin: 6px 0;
+  white-space: nowrap;
+}
+
+.caixa-vh {
+  height: 30vh;
+  background: linear-gradient(to bottom, #bee3f8, #ebf8ff);
+  border: 2px dashed #4299e1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #2b6cb0;
+  font-weight: bold;
+  margin-top: 16px;
+  padding: 20px;
+}
+
+/* ---- ch demo ---- */
+.demo-ch {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.demo-ch label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+.input-cep {
+  width: 11ch;
+  border: 2px solid #4299e1;
+  border-radius: 6px;
+  padding: 8px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 1rem;
+}
+
+.input-cpf {
+  width: 16ch;
+  border: 2px solid #48bb78;
+  border-radius: 6px;
+  padding: 8px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 1rem;
+}
+
+/* ---- Tabela ---- */
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.tabela th,
+.tabela td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tabela thead th {
+  background: #ebf8ff;
+  color: #2b6cb0;
+  font-weight: bold;
+}
+
+.tabela tbody tr:hover {
+  background: #f7fafc;
+}
+
+/* ---- Rodapé ---- */
+.rodape {
+  text-align: center;
+  padding: 24px;
+  background: #1a365d;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.9rem;
+  margin-top: 20px;
+}

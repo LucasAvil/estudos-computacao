@@ -1,0 +1,327 @@
+/* =============================================
+   AULA CSS — CORES
+   ============================================= */
+
+:root {
+  --cor-primaria:   hsl(210, 80%, 50%);
+  --cor-secundaria: hsl(270, 80%, 55%);
+  --cor-sucesso:    hsl(145, 63%, 42%);
+  --cor-fundo:      hsl(210, 30%, 97%);
+  --cor-texto:      hsl(210, 30%, 20%);
+  --cor-borda:      hsl(210, 20%, 88%);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+/* ---- Cabeçalho ---- */
+.cabecalho {
+  background: linear-gradient(135deg,
+    hsl(210, 80%, 20%) 0%,
+    hsl(270, 80%, 40%) 100%);
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.cabecalho h1 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.subtitulo {
+  font-weight: 300;
+  opacity: 0.85;
+}
+
+/* ---- Layout ---- */
+.conteudo {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ---- Card ---- */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+
+.card h2 {
+  font-size: 1.4rem;
+  color: var(--cor-primaria);
+  border-bottom: 2px solid var(--cor-borda);
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+
+.card > p {
+  color: #4a5568;
+  margin-bottom: 16px;
+}
+
+code {
+  background: hsl(210, 40%, 95%);
+  color: var(--cor-primaria);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.88em;
+}
+
+/* ---- Grade de amostras ---- */
+.grade-cores {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.amostra {
+  height: 80px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: white;
+  font-size: 0.78rem;
+  text-align: center;
+  padding: 8px;
+  font-family: 'Source Code Pro', monospace;
+}
+
+.amostra span {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.72rem;
+  opacity: 0.9;
+}
+
+/* Amostras HEX */
+.hex-vermelho { background: #e53e3e; }
+.hex-verde    { background: #38a169; }
+.hex-azul     { background: #3182ce; }
+.hex-amarelo  { background: #d69e2e; }
+.hex-roxo     { background: #805ad5; }
+.hex-preto    { background: #1a202c; }
+.hex-cinza    { background: #718096; }
+.hex-branco   { background: #f7fafc; color: #2d3748; border: 1px solid #e2e8f0; }
+
+/* ---- Explicação HEX ---- */
+.explicacao-hex {
+  margin-top: 20px;
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.explicacao-hex h3 {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-bottom: 10px;
+}
+
+.canal-hex {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.canal {
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: white;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.85rem;
+}
+
+.dica {
+  font-size: 0.88rem;
+  color: #718096;
+}
+
+/* ---- RGBA demo ---- */
+.fundo-listrado {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #e2e8f0 0px,
+    #e2e8f0 10px,
+    #f7fafc 10px,
+    #f7fafc 20px
+  );
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.caixa-rgba {
+  padding: 14px 18px;
+  border-radius: 8px;
+  color: white;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.88rem;
+}
+
+.dica-card {
+  margin-top: 14px;
+  font-size: 0.92rem;
+  color: #4a5568;
+  background: #ebf8ff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border-left: 4px solid var(--cor-primaria);
+}
+
+/* ---- HSL ---- */
+.roda-matiz {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.amostra-hsl {
+  flex: 1 1 70px;
+  min-width: 70px;
+  height: 64px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.subtitulo-secao {
+  font-size: 0.95rem;
+  color: #4a5568;
+  margin: 14px 0 8px;
+  font-weight: 600;
+}
+
+.variacao-linha {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ---- Variáveis CSS ---- */
+.bloco-codigo {
+  background: #1a202c;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 14px 0;
+  overflow-x: auto;
+}
+
+.bloco-codigo pre {
+  color: #a0f4b0;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.88rem;
+  white-space: pre-wrap;
+}
+
+.demo-variaveis {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.btn-primario {
+  background-color: var(--cor-primaria);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-primario:hover { opacity: 0.85; }
+
+.btn-secundario {
+  background-color: var(--cor-secundaria);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-secundario:hover { opacity: 0.85; }
+
+.cartao-var {
+  flex: 1;
+  min-width: 200px;
+  background: var(--cor-fundo);
+  border: 2px solid var(--cor-primaria);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.cartao-var h3 {
+  color: var(--cor-secundaria);
+  margin-bottom: 8px;
+}
+
+/* ---- Tabela ---- */
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.tabela th,
+.tabela td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tabela thead th {
+  background: hsl(210, 40%, 95%);
+  color: var(--cor-primaria);
+  font-weight: bold;
+}
+
+.tabela tbody tr:hover {
+  background: #f7fafc;
+}
+
+/* ---- Rodapé ---- */
+.rodape {
+  text-align: center;
+  padding: 24px;
+  background: hsl(210, 30%, 15%);
+  color: rgba(255,255,255,0.6);
+  font-size: 0.9rem;
+  margin-top: 20px;
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula CSS — Fontes</title>
+
+  <!-- Google Fonts: importando múltiplas famílias -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;700&family=Source+Code+Pro&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <h1>CSS — Fontes e Tipografia</h1>
+    <p class="subtitulo">font-family, Google Fonts, tamanho, peso, estilo e muito mais</p>
+  </header>
+
+  <main class="conteudo">
+
+    <!-- Famílias genéricas -->
+    <section class="card">
+      <h2>1. Famílias genéricas de fonte</h2>
+      <p>O CSS define 5 famílias genéricas como fallback final. Sempre termine sua lista de fontes com uma delas.</p>
+
+      <div class="grade-fontes">
+        <div class="caixa-fonte fonte-serif">
+          <span class="rotulo">serif</span>
+          <p>O rato roeu a roupa do rei de Roma.</p>
+          <code>font-family: serif;</code>
+        </div>
+        <div class="caixa-fonte fonte-sans">
+          <span class="rotulo">sans-serif</span>
+          <p>O rato roeu a roupa do rei de Roma.</p>
+          <code>font-family: sans-serif;</code>
+        </div>
+        <div class="caixa-fonte fonte-mono">
+          <span class="rotulo">monospace</span>
+          <p>O rato roeu a roupa do rei de Roma.</p>
+          <code>font-family: monospace;</code>
+        </div>
+        <div class="caixa-fonte fonte-cursive">
+          <span class="rotulo">cursive</span>
+          <p>O rato roeu a roupa do rei de Roma.</p>
+          <code>font-family: cursive;</code>
+        </div>
+        <div class="caixa-fonte fonte-fantasy">
+          <span class="rotulo">fantasy</span>
+          <p>O rato roeu a roupa do rei de Roma.</p>
+          <code>font-family: fantasy;</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- Google Fonts -->
+    <section class="card">
+      <h2>2. Google Fonts</h2>
+      <p>Google Fonts oferece centenas de fontes gratuitas. Basta adicionar um <code>&lt;link&gt;</code> no <code>&lt;head&gt;</code> e usar o nome no CSS.</p>
+
+      <div class="bloco-codigo">
+        <p class="label-codigo">No &lt;head&gt; do HTML:</p>
+        <pre>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700
+       &amp;family=Playfair+Display&amp;display=swap" rel="stylesheet"&gt;</pre>
+
+        <p class="label-codigo">No CSS:</p>
+        <pre>body { font-family: 'Roboto', sans-serif; }
+h1   { font-family: 'Playfair Display', serif; }</pre>
+      </div>
+
+      <div class="grade-fontes">
+        <div class="caixa-fonte fonte-roboto">
+          <span class="rotulo">Roboto</span>
+          <p>Tipografia moderna para interfaces digitais.</p>
+          <code>font-family: 'Roboto', sans-serif;</code>
+        </div>
+        <div class="caixa-fonte fonte-playfair">
+          <span class="rotulo">Playfair Display</span>
+          <p>Elegante e clássica para títulos.</p>
+          <code>font-family: 'Playfair Display', serif;</code>
+        </div>
+        <div class="caixa-fonte fonte-source-code">
+          <span class="rotulo">Source Code Pro</span>
+          <p>Perfeita para exibir código-fonte.</p>
+          <code>font-family: 'Source Code Pro', monospace;</code>
+        </div>
+        <div class="caixa-fonte fonte-nunito">
+          <span class="rotulo">Nunito</span>
+          <p>Arredondada e amigável para textos de interface.</p>
+          <code>font-family: 'Nunito', sans-serif;</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- font-size -->
+    <section class="card">
+      <h2>3. Tamanho da fonte — <code>font-size</code></h2>
+      <p>Define o tamanho do texto. Pode usar diferentes unidades (veremos mais em Medidas).</p>
+
+      <div class="exemplos-tamanho">
+        <p style="font-size: 12px;">font-size: 12px — texto bem pequeno</p>
+        <p style="font-size: 16px;">font-size: 16px — tamanho padrão do corpo</p>
+        <p style="font-size: 20px;">font-size: 20px — levemente maior</p>
+        <p style="font-size: 28px;">font-size: 28px — subtítulo</p>
+        <p style="font-size: 40px;">font-size: 40px — título grande</p>
+      </div>
+    </section>
+
+    <!-- font-weight -->
+    <section class="card">
+      <h2>4. Peso da fonte — <code>font-weight</code></h2>
+      <p>Controla a espessura do traço. Valores de <code>100</code> (fino) a <code>900</code> (negrito extremo) ou palavras-chave.</p>
+
+      <div class="exemplos-peso">
+        <p style="font-family: 'Roboto', sans-serif; font-weight: 300;">font-weight: 300 — Light</p>
+        <p style="font-family: 'Roboto', sans-serif; font-weight: 400;">font-weight: 400 — Regular (normal)</p>
+        <p style="font-family: 'Roboto', sans-serif; font-weight: 700;">font-weight: 700 — Bold</p>
+        <p style="font-family: 'Nunito', sans-serif; font-weight: 800;">font-weight: 800 — ExtraBold (Nunito)</p>
+      </div>
+    </section>
+
+    <!-- font-style -->
+    <section class="card">
+      <h2>5. Estilo — <code>font-style</code></h2>
+
+      <div class="exemplos-estilo">
+        <p style="font-style: normal;">font-style: normal — texto padrão</p>
+        <p style="font-style: italic; font-family: 'Playfair Display', serif;">font-style: italic — itálico (Playfair Display)</p>
+        <p style="font-style: oblique;">font-style: oblique — inclinado mecanicamente</p>
+      </div>
+    </section>
+
+    <!-- Propriedades de texto -->
+    <section class="card">
+      <h2>6. Outras propriedades tipográficas</h2>
+
+      <div class="exemplos-tipografia">
+        <div class="item-tipo">
+          <code>line-height: 2</code>
+          <p class="lh-alto">Este parágrafo tem espaçamento de linha duplo. Muito usado para melhorar a legibilidade em textos corridos.</p>
+        </div>
+
+        <div class="item-tipo">
+          <code>letter-spacing: 4px</code>
+          <p class="espacamento-letras">Espaçamento entre caracteres</p>
+        </div>
+
+        <div class="item-tipo">
+          <code>word-spacing: 12px</code>
+          <p class="espacamento-palavras">Espaçamento entre as palavras do texto</p>
+        </div>
+
+        <div class="item-tipo">
+          <code>text-transform</code>
+          <p class="maiusculas">text-transform: uppercase</p>
+          <p class="minusculas">TEXT-TRANSFORM: LOWERCASE</p>
+          <p class="capitalizado">text-transform: capitalize</p>
+        </div>
+
+        <div class="item-tipo">
+          <code>text-decoration</code>
+          <p class="sublinhado">text-decoration: underline</p>
+          <p class="riscado">text-decoration: line-through</p>
+          <p class="sem-sublinhado"><a href="#">Link sem sublinhado (text-decoration: none)</a></p>
+        </div>
+
+        <div class="item-tipo">
+          <code>text-align</code>
+          <p class="alinha-left">Alinhado à esquerda (left)</p>
+          <p class="alinha-center">Centralizado (center)</p>
+          <p class="alinha-right">Alinhado à direita (right)</p>
+          <p class="alinha-justify">Justificado (justify) — O texto se distribui para ocupar toda a largura da linha, como em livros e jornais impressos.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <p>Aula 02 — Desenvolvimento Web &bull; Ciência da Computação</p>
+  </footer>
+
+</body>
+</html>

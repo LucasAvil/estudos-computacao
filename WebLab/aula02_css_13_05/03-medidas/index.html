@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula CSS — Medidas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <h1>CSS — Medidas e Unidades</h1>
+    <p class="subtitulo">Absolutas, relativas e baseadas na viewport</p>
+  </header>
+
+  <main class="conteudo">
+
+    <!-- Visão geral -->
+    <section class="card destaque">
+      <h2>Tipos de unidades</h2>
+      <div class="dois-blocos">
+        <div class="bloco-tipo">
+          <h3>Absolutas</h3>
+          <p>Têm tamanho fixo, independente do contexto. Úteis para impressão ou quando o tamanho precisa ser exato.</p>
+          <ul>
+            <li><code>px</code> — pixels</li>
+            <li><code>cm</code>, <code>mm</code>, <code>in</code> — físicos</li>
+            <li><code>pt</code> — pontos (tipografia)</li>
+          </ul>
+        </div>
+        <div class="bloco-tipo">
+          <h3>Relativas</h3>
+          <p>Calculadas em relação a outro valor — mais flexíveis e responsivas.</p>
+          <ul>
+            <li><code>em</code> — relativo ao elemento pai</li>
+            <li><code>rem</code> — relativo ao elemento raiz</li>
+            <li><code>%</code> — relativo ao pai</li>
+            <li><code>vw</code>, <code>vh</code> — viewport</li>
+            <li><code>vmin</code>, <code>vmax</code> — menor/maior lado</li>
+            <li><code>ch</code> — largura do caractere "0"</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- px -->
+    <section class="card">
+      <h2>1. <code>px</code> — Pixels</h2>
+      <p>A unidade mais conhecida. Um pixel corresponde a um ponto na tela. É absoluta e não se adapta ao zoom do sistema operacional (use <code>rem</code> para acessibilidade).</p>
+
+      <div class="exemplos-px">
+        <div class="barra" style="width: 50px; background:#4299e1;">50px</div>
+        <div class="barra" style="width: 150px; background:#48bb78;">150px</div>
+        <div class="barra" style="width: 300px; background:#ed8936;">300px</div>
+        <div class="barra" style="width: 500px; background:#9f7aea;">500px</div>
+      </div>
+    </section>
+
+    <!-- em -->
+    <section class="card">
+      <h2>2. <code>em</code> — Relativo ao pai</h2>
+      <p><code>1em</code> é igual ao <code>font-size</code> do elemento <em>pai</em>. Pode se acumular em elementos aninhados!</p>
+
+      <div class="demo-em">
+        <div class="pai-em">
+          <p>Pai — font-size: 16px (base)</p>
+          <div class="filho-em">
+            <p>Filho — font-size: 1.5em = <strong>24px</strong></p>
+            <div class="neto-em">
+              <p>Neto — font-size: 1.5em = <strong>36px</strong> (acumulado!)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- rem -->
+    <section class="card">
+      <h2>3. <code>rem</code> — Relativo à raiz</h2>
+      <p><code>1rem</code> é sempre igual ao <code>font-size</code> do elemento <code>&lt;html&gt;</code> (padrão: 16px). Não acumula — muito mais previsível.</p>
+
+      <div class="demo-rem">
+        <p style="font-size: 1rem;">font-size: 1rem = 16px</p>
+        <p style="font-size: 1.5rem;">font-size: 1.5rem = 24px</p>
+        <p style="font-size: 2rem;">font-size: 2rem = 32px</p>
+        <p style="font-size: 0.75rem;">font-size: 0.75rem = 12px</p>
+      </div>
+
+      <div class="comparacao">
+        <div class="comp-item">
+          <h4>em — acumula</h4>
+          <div style="font-size:16px">
+            Pai (16px)
+            <div style="font-size:1.5em">
+              Filho (24px)
+              <div style="font-size:1.5em">
+                Neto (36px!)
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="comp-item">
+          <h4>rem — não acumula</h4>
+          <div style="font-size:16px">
+            Pai (16px)
+            <div style="font-size:1.5rem">
+              Filho (24px)
+              <div style="font-size:1.5rem">
+                Neto (24px — estável!)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- % -->
+    <section class="card">
+      <h2>4. <code>%</code> — Porcentagem</h2>
+      <p>Relativo ao elemento pai. Muda conforme o pai muda. Muito usado para larguras fluidas.</p>
+
+      <div class="demo-pct">
+        <div class="container-pai">
+          <span class="label-pai">Pai (100%)</span>
+          <div class="barra-pct" style="width:25%; background:#4299e1;">25%</div>
+          <div class="barra-pct" style="width:50%; background:#48bb78;">50%</div>
+          <div class="barra-pct" style="width:75%; background:#ed8936;">75%</div>
+          <div class="barra-pct" style="width:100%; background:#9f7aea;">100%</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- vw / vh -->
+    <section class="card">
+      <h2>5. <code>vw</code> e <code>vh</code> — Viewport Width/Height</h2>
+      <p><code>1vw</code> = 1% da largura da janela. <code>1vh</code> = 1% da altura. Muito útil para layouts de tela cheia.</p>
+
+      <div class="demo-vw">
+        <div class="barra-vw" style="width:25vw; background:#4299e1;">25vw</div>
+        <div class="barra-vw" style="width:50vw; background:#48bb78;">50vw</div>
+        <div class="barra-vw" style="width:75vw; background:#ed8936;">75vw — redimensione a janela!</div>
+      </div>
+
+      <div class="caixa-vh">
+        <p>Esta caixa tem <code>height: 30vh</code> — 30% da altura da janela.</p>
+      </div>
+    </section>
+
+    <!-- ch -->
+    <section class="card">
+      <h2>6. <code>ch</code> — Largura do caractere</h2>
+      <p><code>1ch</code> = largura do caractere <code>0</code> na fonte atual. Ótimo para inputs de tamanho fixo (ex: CPF, CEP).</p>
+
+      <div class="demo-ch">
+        <label>CEP (8 dígitos):</label>
+        <input type="text" maxlength="8" class="input-cep" placeholder="00000-000">
+
+        <label>CPF (11 dígitos):</label>
+        <input type="text" maxlength="11" class="input-cpf" placeholder="000.000.000-00">
+      </div>
+    </section>
+
+    <!-- Tabela comparativa -->
+    <section class="card">
+      <h2>Tabela Comparativa</h2>
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>Unidade</th>
+            <th>Tipo</th>
+            <th>Relativa a</th>
+            <th>Caso de uso típico</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>px</code></td><td>Absoluta</td><td>—</td><td>Bordas, ícones</td></tr>
+          <tr><td><code>em</code></td><td>Relativa</td><td>Pai</td><td>Padding/margin proporcional ao texto</td></tr>
+          <tr><td><code>rem</code></td><td>Relativa</td><td>Raiz (html)</td><td>Tamanhos de texto acessíveis</td></tr>
+          <tr><td><code>%</code></td><td>Relativa</td><td>Pai</td><td>Larguras fluidas</td></tr>
+          <tr><td><code>vw</code></td><td>Relativa</td><td>Largura da viewport</td><td>Layouts de tela cheia</td></tr>
+          <tr><td><code>vh</code></td><td>Relativa</td><td>Altura da viewport</td><td>Seções hero, modais</td></tr>
+          <tr><td><code>ch</code></td><td>Relativa</td><td>Largura do "0"</td><td>Inputs com tamanho fixo</td></tr>
+          <tr><td><code>vmin</code></td><td>Relativa</td><td>Menor lado da viewport</td><td>Fontes responsivas</td></tr>
+          <tr><td><code>vmax</code></td><td>Relativa</td><td>Maior lado da viewport</td><td>Elementos que cobrem a tela</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <p>Aula 02 — Desenvolvimento Web &bull; Ciência da Computação</p>
+  </footer>
+
+</body>
+</html>

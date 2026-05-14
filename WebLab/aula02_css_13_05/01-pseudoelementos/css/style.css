@@ -1,0 +1,270 @@
+/* =============================================
+   AULA CSS — PSEUDOELEMENTOS
+   ============================================= */
+
+/* Reset básico */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f0f4f8;
+  color: #2d3748;
+  line-height: 1.7;
+}
+
+/* ---- Cabeçalho ---- */
+.cabecalho {
+  background-color: #4a5568;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.cabecalho h1 {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+
+.subtitulo {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+/* ---- Layout ---- */
+.conteudo {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ---- Card ---- */
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  font-size: 1.4rem;
+  color: #2b6cb0;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #bee3f8;
+  padding-bottom: 8px;
+}
+
+.card > p {
+  margin-bottom: 18px;
+  color: #4a5568;
+}
+
+code {
+  background: #edf2f7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #c05621;
+}
+
+/* ============================================
+   1. ::before e ::after
+   ============================================ */
+
+/* Parágrafo com ícone antes */
+.aviso::before {
+  content: "⚠️ ";
+}
+
+.aviso::after {
+  content: " ✔";
+  color: green;
+  font-weight: bold;
+}
+
+/* Link externo com seta depois */
+.link-externo {
+  color: #2b6cb0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link-externo::after {
+  content: " ↗";
+  font-size: 0.85em;
+  color: #718096;
+}
+
+.link-externo:hover::after {
+  color: #2b6cb0;
+}
+
+/* Lista com marcador customizado */
+.lista-custom {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-custom li {
+  padding: 6px 0 6px 0;
+}
+
+.lista-custom li::before {
+  content: "▶ ";
+  color: #4299e1;
+  font-size: 0.8em;
+}
+
+.exemplo-before-after {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 12px;
+}
+
+/* ============================================
+   2. ::first-letter (capitular)
+   ============================================ */
+
+.exemplo-first-letter {
+  background: #fffaf0;
+  border: 1px solid #fbd38d;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.capitular::first-letter {
+  font-size: 3.5em;
+  font-weight: bold;
+  color: #c05621;
+  float: left;
+  line-height: 1;
+  margin-right: 6px;
+  font-family: Georgia, serif;
+}
+
+/* ============================================
+   3. ::first-line
+   ============================================ */
+
+.exemplo-first-line {
+  background: #f0fff4;
+  border: 1px solid #9ae6b4;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.primeira-linha::first-line {
+  font-weight: bold;
+  color: #276749;
+  font-size: 1.05em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ============================================
+   4. ::placeholder
+   ============================================ */
+
+.exemplo-placeholder form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.exemplo-placeholder label {
+  font-weight: bold;
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+.exemplo-placeholder input,
+.exemplo-placeholder textarea {
+  border: 2px solid #cbd5e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.exemplo-placeholder input:focus,
+.exemplo-placeholder textarea:focus {
+  border-color: #4299e1;
+}
+
+/* Estilizando o placeholder */
+.exemplo-placeholder input::placeholder {
+  color: #a0aec0;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.exemplo-placeholder textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.exemplo-placeholder textarea::placeholder {
+  color: #b794f4;
+  font-style: italic;
+}
+
+/* ============================================
+   5. ::selection
+   ============================================ */
+
+.exemplo-selection {
+  background: #faf5ff;
+  border: 1px solid #d6bcfa;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.texto-selecionavel::selection {
+  background-color: #805ad5;
+  color: #fff9c4;
+}
+
+/* ============================================
+   Tabela de resumo
+   ============================================ */
+.tabela-resumo {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.tabela-resumo th,
+.tabela-resumo td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tabela-resumo thead th {
+  background-color: #ebf8ff;
+  color: #2b6cb0;
+  font-weight: bold;
+}
+
+.tabela-resumo tbody tr:hover {
+  background-color: #f7fafc;
+}
+
+/* ---- Rodapé ---- */
+.rodape {
+  text-align: center;
+  padding: 24px;
+  background-color: #4a5568;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  margin-top: 20px;
+}

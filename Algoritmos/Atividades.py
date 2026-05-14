@@ -290,33 +290,60 @@
 #    print(f'{x} - {nome}')
 #    x += 1
 ####################################################
-banco_dados = []
-
-dado_1 = {
-    'nome': str(input('Digite seu nome: ')),
-    'sobrenome': input('digite o seu sobrenome: '),
-    'data_nascimento': input('digite sua data de nascimento: '),
-    'telefones': [input('digite o primeiro telefone: '), input('digite o segundo telefone: ')],
-    'endereco': {'rua': input('digite a sua rua: '), 'bairro': input('digite o seu bairro: '), 'cidade': input('digite a sua cidade: ')}
-        }
-dado_2 = {
-    'nome': str(input('Digite seu nome: ')),
-    'sobrenome': input('digite o seu sobrenome: '),
-    'data_nascimento': input('digite sua data de nascimento: '),
-    'telefones': [input('digite o primeiro telefone: '), input('digite o segundo telefone: ')],
-    'endereco': {'rua': input('digite a sua rua: '), 'bairro': input('digite o seu bairro: '), 'cidade': input('digite a sua cidade: ')}
-        }
-
-dado_3 = {
-    'nome': str(input('Digite seu nome: ')),
-    'sobrenome': input('digite o seu sobrenome: '),
-    'data_nascimento': input('digite sua data de nascimento: '),
-    'telefones': [input('digite o primeiro telefone: '), input('digite o segundo telefone: ')],
-    'endereco': {'rua': input('digite a sua rua: '), 'bairro': input('digite o seu bairro: '), 'cidade': input('digite a sua cidade: ')}
-        }
-
-banco_dados.append(dado_1)
-banco_dados.append(dado_2)
-banco_dados.append(dado_3)
-
-print(banco_dados)
+#banco_dados = []
+#
+#dado_1 = {
+#    'nome': str(input('Digite seu nome: ')),
+#    'sobrenome': input('digite o seu sobrenome: '),
+#    'data_nascimento': input('digite sua data de nascimento: '),
+#    'telefones': [input('digite o primeiro telefone: '), input('digite o segundo telefone: ')],
+#    'endereco': {'rua': input('digite a sua rua: '), 'bairro': input('digite o seu bairro: '), 'cidade': input('digite a sua cidade: ')}
+#        }
+#dado_2 = {
+#    'nome': str(input('Digite seu nome: ')),
+#   'sobrenome': input('digite o seu sobrenome: '),
+#    'data_nascimento': input('digite sua data de nascimento: '),
+#    'telefones': [input('digite o primeiro telefone: '), input('digite o segundo telefone: ')],
+#    'endereco': {'rua': input('digite a sua rua: '), 'bairro': input('digite o seu bairro: '), 'cidade': input('digite a sua cidade: ')}
+#        }
+#
+#dado_3 = {
+#    'nome': str(input('Digite seu nome: ')),
+#    'sobrenome': input('digite o seu sobrenome: '),
+#    'data_nascimento': input('digite sua data de nascimento: '),
+#    'telefones': [input('digite o primeiro telefone: '), input('digite o segundo telefone: ')],
+#    'endereco': {'rua': input('digite a sua rua: '), 'bairro': input('digite o seu bairro: '), 'cidade': input('digite a sua cidade: ')}
+#        }
+#
+#banco_dados.append(dado_1)
+#banco_dados.append(dado_2)
+#banco_dados.append(dado_3)
+#
+#print(banco_dados)
+####################################################################
+#sum - soma
+#max - maior valor
+#min - menor valor
+#map - recebe dois parametros, o primeiro é a lista e a segunda é o lambda (função anonima) - passa de valor em valor e tira o valor que nao precisa
+#abs - absoluto (tira o negativo)
+#valores = [1, 10, -5, 13, 2, 1]
+#pares = filter(lambda a: a%2==0, valores)
+#print(sum(pares))
+###########################
+lista_geral = []
+prod = {}
+while ";;" not in prod:
+    prod = {'produto': input('Produto: '), 'categoria': input('categoria: '), 'valor total vendas': input('valor total vendas: ')}
+    lista_geral.append(prod)
+    
+totais_categoria = {}
+for i in lista_geral:
+    categoria_atual = lista_geral['categoria']
+    valor_venda = lista_geral['valor total vendas']
+    if categoria_atual in totais_categoria:
+        totais_categoria[categoria_atual] += valor_venda
+    else:
+        totais_categoria[categoria_atual] = valor_venda
+    
+for categoria, total in totais_categoria.items():
+    print(f'Categoria {categoria}: R$ {total}')

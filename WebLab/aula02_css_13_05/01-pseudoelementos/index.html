@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula CSS — Pseudoelementos</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <h1>CSS Pseudoelementos</h1>
+    <p class="subtitulo">Selecionando partes específicas de um elemento</p>
+  </header>
+
+  <main class="conteudo">
+
+    <!-- ::before e ::after -->
+    <section class="card">
+      <h2>1. <code>::before</code> e <code>::after</code></h2>
+      <p>Inserem conteúdo decorativo <strong>antes</strong> ou <strong>depois</strong> do conteúdo real do elemento, sem alterar o HTML.</p>
+
+      <div class="exemplo-before-after">
+        <p class="aviso">Este parágrafo tem ícones inseridos via CSS</p>
+      </div>
+
+      <div class="exemplo-before-after">
+        <a class="link-externo" href="https://www.leon.dev.br/slidev/css/#/1">Abrir documentação</a>
+      </div>
+
+      <div class="exemplo-before-after">
+        <ul class="lista-custom">
+          <li>Item da lista</li>
+          <li>Outro item</li>
+          <li>Mais um item</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ::first-letter -->
+    <section class="card">
+      <h2>2. <code>::first-letter</code></h2>
+      <p>Estiliza apenas a <strong>primeira letra</strong> de um bloco de texto — técnica clássica de tipografia chamada <em>capitular</em>.</p>
+
+      <div class="exemplo-first-letter">
+        <p class="capitular">
+          Era uma vez um desenvolvedor web que descobriu o poder dos pseudoelementos
+          do CSS e nunca mais voltou a usar spans desnecessários para estilizar
+          partes específicas de seus textos. Desde então, seu código ficou muito
+          mais limpo e semântico.
+        </p>
+      </div>
+    </section>
+
+    <!-- ::first-line -->
+    <section class="card">
+      <h2>3. <code>::first-line</code></h2>
+      <p>Estiliza apenas a <strong>primeira linha</strong> visível de um parágrafo (depende da largura da tela).</p>
+
+      <div class="exemplo-first-line">
+        <p class="primeira-linha">
+          Esta é a primeira linha do parágrafo — ela terá estilo diferente.
+          O restante do texto segue o estilo normal do parágrafo, sem nenhuma
+          marcação extra no HTML. Redimensione a janela para ver o efeito mudar.
+        </p>
+      </div>
+    </section>
+
+    <!-- ::placeholder -->
+    <section class="card">
+      <h2>4. <code>::placeholder</code></h2>
+      <p>Estiliza o texto de <em>placeholder</em> dos campos de formulário.</p>
+
+      <div class="exemplo-placeholder">
+        <form>
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" placeholder="Digite seu nome completo">
+
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" placeholder="exemplo@email.com">
+
+          <label for="msg">Mensagem:</label>
+          <textarea id="msg" placeholder="Escreva sua mensagem aqui..."></textarea>
+        </form>
+      </div>
+    </section>
+
+    <!-- ::selection -->
+    <section class="card">
+      <h2>5. <code>::selection</code></h2>
+      <p>Estiliza o texto quando ele é <strong>selecionado</strong> pelo usuário com o mouse. Selecione o texto abaixo para ver o efeito!</p>
+
+      <div class="exemplo-selection">
+        <p class="texto-selecionavel">
+          Selecione este texto com o mouse para ver o pseudoelemento
+          <code>::selection</code> em ação. A cor de fundo e a cor do texto
+          mudam ao selecionar!
+        </p>
+      </div>
+    </section>
+
+    <!-- Tabela resumo -->
+    <section class="card">
+      <h2>Resumo dos Pseudoelementos</h2>
+      <table class="tabela-resumo">
+        <thead>
+          <tr>
+            <th>Pseudoelemento</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>::before</code></td>
+            <td>Insere conteúdo antes do elemento</td>
+          </tr>
+          <tr>
+            <td><code>::after</code></td>
+            <td>Insere conteúdo depois do elemento</td>
+          </tr>
+          <tr>
+            <td><code>::first-letter</code></td>
+            <td>Estiliza a primeira letra</td>
+          </tr>
+          <tr>
+            <td><code>::first-line</code></td>
+            <td>Estiliza a primeira linha visível</td>
+          </tr>
+          <tr>
+            <td><code>::placeholder</code></td>
+            <td>Estiliza o placeholder de inputs</td>
+          </tr>
+          <tr>
+            <td><code>::selection</code></td>
+            <td>Estiliza texto selecionado</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <p>Aula 02 — Desenvolvimento Web &bull; Ciência da Computação</p>
+  </footer>
+
+</body>
+</html>
