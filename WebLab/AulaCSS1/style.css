@@ -23,12 +23,12 @@ ul li{
 }
 h2{
     color: yellowgreen;
-    font-style: bold;
+    font-weight: bold;
 }
 .ingrediente-secreto{
     color: greenyellow;
     font-weight: bold;
 }
 .aviso{
-    color:rgb(147, 219, 31)yellow
+    color:rgb(147, 219, 31)
 }
