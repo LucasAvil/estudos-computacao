@@ -1,3 +1,9 @@
+:root{
+    --cor-primaria: #1A1A1A;
+    --cor-secundaria: #C68346;
+    --cor-secundaria-hover: #c2732a;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -11,8 +17,11 @@ img{
 
 body{
     font-family: sans-serif;
-    background-color: rgb(255, 255, 255);
-    color: black;
+    background-color: var(--cor-primaria);
+    color: white;
+    margin: 0;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .header{
@@ -21,7 +30,13 @@ body{
     align-items: center;
     padding: 0 32px;
     height: 60px;
-    background-color: rgb(68, 5, 5);
+    background-color: var(--cor-secundaria);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
 }
 
 .logo {
@@ -64,7 +79,8 @@ body{
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    color: var(--cor-secundaria);
 }
 
 .card-img{
@@ -86,8 +102,8 @@ body{
 }
 
 .card p{
-    padding: 0 16px ;
-    color: rgba(104, 9, 9, 0.818);
+    padding: 4px 16px ;
+    color: var(--cor-secundaria);
     font-weight: 700;
     font-size: 1.1rem;
 }
@@ -95,7 +111,7 @@ body{
 .card button{
     margin: auto 16px 16px;
     padding: 10px;
-    background-color: darkred;
+    background-color: var(--cor-secundaria);
     border-radius: 6px;
     border: none;
     font-size: .9 rem;
@@ -104,7 +120,14 @@ body{
 }
 
 .card button:hover{
-    background-color: rgba(139, 0, 0, 0.774);
+    background-color: var(--cor-secundaria-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card button:active{
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .footer{
@@ -113,7 +136,7 @@ body{
     align-items: center;
     padding: 20px 32px;
     color: white;
-    background-color: rgb(68, 5, 5);
+    background-color: var(--cor-secundaria);
     font-size: .9rem;
     margin-top: 50px;
 }

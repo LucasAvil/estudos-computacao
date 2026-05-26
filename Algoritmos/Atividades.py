@@ -330,21 +330,23 @@
 #pares = filter(lambda a: a%2==0, valores)
 #print(sum(pares))
 ###########################
-#lista_geral = []
-#prod = {}
-#while ";;" not in prod:
-#    prod = {'produto': input('Produto: '), 'categoria': input('categoria: '), 'valor total vendas': input('valor total vendas: ')}
-#    lista_geral.append(prod)
-#    
-#totais_categoria = {}
-#for i in lista_geral:
-#    categoria_atual = lista_geral['categoria']
-#    valor_venda = lista_geral['valor total vendas']
-#    if categoria_atual in totais_categoria:
-#        totais_categoria[categoria_atual] += valor_venda
-#    else:
-#        totais_categoria[categoria_atual] = valor_venda
-#    
-#for categoria, total in totais_categoria.items():
-#    print(f'Categoria {categoria}: R$ {total}')
-################################
+lista = []
+while True:
+    numero = int(input("digite um numero"))
+
+    lista.append(numero)
+
+    parar = input("deseja parar? (S/N):  ").upper()
+
+    if parar == 'S':
+        break
+
+    lista_sem_rep = list(dict.fromkeys(lista))
+
+print(lista_sem_rep)
+
+
+
+    
+
+
