@@ -261,6 +261,11 @@
 #
 #for item in itens_sorteados:
 #    print(f"{item['nome']:<10} ${item['custo']:<5} {item['dano']}HP    {item['descricao']}")
+# ==============================================================================
+# ATIVIDADE 01 - Lusa
+# ============================================================================== 
+#for item in itens_sorteados:
+#    print(f"{item['nome']:<10} ${item['custo']:<5} {item['dano']}HP    {item['descricao']}")
 #x = 1
 #while True:
 #    try:
@@ -289,7 +294,10 @@
 #for nome in lista_nomes:
 #    print(f'{x} - {nome}')
 #    x += 1
-####################################################
+
+# ==============================================================================
+# ATIVIDADE 02 - Lusa
+# ============================================================================== 
 #banco_dados = []
 #
 #dado_1 = {
@@ -320,7 +328,10 @@
 #banco_dados.append(dado_3)
 #
 #print(banco_dados)
-####################################################################
+
+# ==============================================================================
+# ATIVIDADE 03 - Lusa
+# ============================================================================== 
 #sum - soma
 #max - maior valor
 #min - menor valor
@@ -329,24 +340,143 @@
 #valores = [1, 10, -5, 13, 2, 1]
 #pares = filter(lambda a: a%2==0, valores)
 #print(sum(pares))
-###########################
-lista = []
-while True:
-    numero = int(input("digite um numero"))
+# ==============================================================================
+# ATIVIDADE 04 - Lusa
+# ============================================================================== 
+# def validacao(valor):
+#     if valor <= 10 and valor >= 1:
+#         return True
 
-    lista.append(numero)
-
-    parar = input("deseja parar? (S/N):  ").upper()
-
-    if parar == 'S':
-        break
-
-    lista_sem_rep = list(dict.fromkeys(lista))
-
-print(lista_sem_rep)
-
-
-
+# def converter(valor):
+#     return int(valor)
     
 
+# def solicitar_entrada(msg, validador, conversor):
+#     while True:
+#         valor = input(msg)
+#         try:
+#             valor = conversor(valor)
+#             if validador(valor):
+#                 break
+#         except:
+#             pass
+    
+#         print('Valor inválido!!. Informe novamente')
+#     return valor
 
+# vlr_1 = solicitar_entrada("informe o primeiro valor: ", validacao, converter)
+
+# print(vlr_1)
+# ==============================================================================
+# ATIVIDADE 04 - dicionários
+# ============================================================================== 
+# categorias = {}
+# while True:
+#     prod = input("Digite os valores: ")
+    
+#     if ";;" in prod:
+#         print("Encerrando")
+#         break
+
+#     prod_separado = prod.split(';')
+
+#     if prod_separado[1] not in categorias:
+#         categorias[prod_separado[1]] = int(prod_separado[2])
+        
+#     else:
+#         categorias[prod_separado[1]] += int(prod_separado[2])
+
+#     print("Produtos adicionados")
+
+# print(categorias)
+
+# ==============================================================================
+# ATIVIDADE 05 - dicionários
+# ============================================================================== 
+# medias = {}
+
+# while True:
+#     nome = (input("Digite o nome do estudante: ")) 
+#     nota = float(input("Digite a nota: "))
+
+#     medias[nome] = nota
+
+#     sair = input("Deseja sair? (S/N) ").strip().capitalize()
+
+#     for x, y in medias.items():
+#         if y < 6:
+#             del x
+    
+#     if sair == 'S':
+#         break
+    
+
+# print(medias)
+
+# ==============================================================================
+# ATIVIDADE 06 - dicionários
+# ============================================================================== 
+# nomes = []
+# while True:
+#     entrada = input("digite um nome: ").upper()
+
+#     if entrada == 'STOP':
+#         break
+    
+#     nomes.append(entrada)
+
+# busca = input("digite a string de busca: ").upper()
+
+# for n in nomes:
+#     if busca in n:
+#         print(n)
+
+# ==============================================================================
+# ATIVIDADE 07 - dicionários
+# ============================================================================== 
+# lista = []
+# while True:
+#     numero = int(input("digite um numero"))
+
+#     lista.append(numero)
+#     lista_sem_rep = list(dict.fromkeys(lista))
+#     parar = input("deseja parar? (S/N):  ").upper()
+
+#     if parar == 'S':
+#         break
+
+# print(lista_sem_rep)
+# ==============================================================================
+# ATIVIDADE 01 - funções
+# ============================================================================== 
+# valores = [10, 5, 12.5, 7.5]
+# def media(valor):
+#     return sum(valor) / len(valor)
+
+# def maior_menor(valor):
+#     return (max(valor), min(valor))
+
+# def amplitude(valor):
+#     return max(valor) - min(valor)
+
+# print(media(valores))
+# print(maior_menor(valores))
+# print(amplitude(valores))
+# ==============================================================================
+# ATIVIDADE 02 - funções
+# ============================================================================== 
+# def nota_valida(n):
+#     return 10 <= n and n >= 0
+
+# def normalizar_nota(n):
+#     return max(0, min(10, n))
+
+# def media_notas(notas):
+#     return sum(notas) / len(notas)
+
+# notas = [8, 12, -1, 6.5]
+# print([normalizar_nota(n) for n in notas])
+# print(media_notas(notas))
+# ==============================================================================
+# ATIVIDADE 03 - funções
+# ============================================================================== 
