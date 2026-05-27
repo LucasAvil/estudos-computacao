@@ -480,3 +480,98 @@
 # ==============================================================================
 # ATIVIDADE 03 - funções
 # ============================================================================== 
+# def celsius_para_farenheit(c):
+#     f = (9/5) * c + 32
+#     return f
+
+# def farenheit_para_celsius(f):
+#     c = (5/9) * (f-32)
+#     return c
+
+# def converter_temperaturas(valores, origem):
+#     if origem == 'C':
+#         return [celsius_para_farenheit(i) for i in valores]
+#     elif origem == 'F':
+#         return [farenheit_para_celsius(i) for i in valores]
+    
+# print(celsius_para_farenheit(0))
+# print(farenheit_para_celsius(212))
+# print(converter_temperaturas([0, 10, 20], 'C'))
+# ==============================================================================
+# ATIVIDADE 04 - funções
+# ============================================================================== 
+# def limpar_texto(s):
+#     return (s.strip().lower().replace(" ", ""))
+
+# def contar_vogais(s):
+#     dicio_vogais = {}
+#     for i in limpar_texto(s):
+#         if i in 'aeiou':
+#             if i in dicio_vogais:
+#                 dicio_vogais[i] += 1
+#             else:
+#                 dicio_vogais[i] = 1
+#     return dicio_vogais
+
+# def eh_palindromo(s):
+#     s = limpar_texto(s)
+#     invert = s[::-1]
+#     return s == invert
+    
+# print(limpar_texto("        Oi Mundo       "))
+# print(contar_vogais("Abacate"))
+# print(eh_palindromo("Socorram me subi no onibus em Marrocos")) 
+# ==============================================================================
+# ATIVIDADE 05 - funções
+# ============================================================================== 
+# def inserir_ordenado(ordenada, x):
+#     for i in range (len(ordenada)):
+#         if ordenada[i] > x:
+#             ordenada.insert(i, x)
+#             return ordenada
+#     ordenada.append(x)
+#     return ordenada
+
+# def ordenar(valores):
+#     lista = []
+#     for i in valores:
+#         lista = inserir_ordenado(lista, i)
+#     return lista
+
+# def mediana(valores):
+#     lista = ordenar(valores)
+#     n = len(lista)
+#     meio = n // 2
+#     if n %2==0:
+#         centro = lista[meio-1]
+#         centro2 = lista[meio]
+#         return (centro + centro2) / 2
+#     else:
+#         return lista[meio]
+
+
+# print (inserir_ordenado([1, 2, 3, 10, 11], 12))
+# print(ordenar([3, 1, 2]))
+# print(mediana([10, 2, 8]))
+# print(mediana([10, 2, 8, 4]))
+# ==============================================================================
+# ATIVIDADE 06 - funções
+# ============================================================================== 
+def  subtotal_item(preco, qtd):
+    return preco * qtd
+def total_compra(itens):
+    soma = 0
+    for i in itens:
+            if i[1] < 0 or i[2] < 0:
+                 return None
+            
+            soma += subtotal_item(i[1], i[2])
+    return soma
+
+def aplicar_desconto(total, percentual):
+     desconto = total * percentual / 100
+     return total - desconto
+
+itens = [('feijao', 6.5, 2), ('farinha', 7.0, 1)]
+print(total_compra(itens)) 
+print(aplicar_desconto(20.0, 10))
