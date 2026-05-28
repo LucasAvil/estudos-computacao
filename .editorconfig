@@ -1,0 +1,10 @@
+root = true
+
+# Regras para todos os arquivos
+[*]
+indent_style = space          # Usa espaços no lugar do Tab real
+indent_size = 2               # Define o espaçamento "ok" (2 espaços é o padrão do JavaScript)
+end_of_line = lf              # Padroniza as quebras de linha (evita bugs entre Windows e Mac)
+charset = utf-8               # Garante que acentos não vão quebrar
+trim_trailing_whitespace = true # Apaga espaços inúteis que ficam sobrando no fim das linhas
+insert_final_newline = true   # Sempre deixa uma linha em branco no final do arquivo (boa prática)

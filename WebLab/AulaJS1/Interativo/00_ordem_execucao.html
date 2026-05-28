@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  ONDE COLOCAR O <script>? — ORDEM DE INTERPRETAÇÃO E EXECUÇÃO  ║
+  ╚══════════════════════════════════════════════════════════════════╝
+
+  O navegador lê o HTML de CIMA para BAIXO, linha a linha.
+  Quando encontra uma tag <script>, ele PARA o HTML, executa o JS
+  e só depois continua lendo o restante da página.
+
+  Isso cria três comportamentos bem diferentes dependendo de onde
+  você coloca o bloco <script>.
+-->
+
+<head>
+  <meta charset="UTF-8" />
+  <title>00 · Ordem de Execução do JS</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 2rem auto; line-height: 1.7; }
+    h1   { color: #333; }
+    h2   { color: #555; border-bottom: 2px solid #ddd; padding-bottom: .3rem; margin-top: 2rem; }
+    .box { background: #f4f4f4; border-left: 4px solid #888; padding: .8rem 1.2rem; margin: 1rem 0; border-radius: 4px; }
+    .ok  { border-color: #4caf50; background: #f0fff0; }
+    .bad { border-color: #f44336; background: #fff0f0; }
+    .tip { border-color: #2196f3; background: #e8f4ff; }
+    code { background: #e8e8e8; padding: .1rem .4rem; border-radius: 3px; }
+    pre  { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 6px; overflow-x: auto; }
+    #demo-elemento { font-weight: bold; color: #2196f3; }
+  </style>
+
+  <!-- ─────────────────────────────────────────────────────────────────────
+       1. SCRIPT NO <head>
+       O JS executa ANTES de qualquer elemento do <body> existir.
+       Tentar acessar elementos da página aqui retorna null.
+  ────────────────────────────────────────────────────────────────────── -->
+  <script>
+    console.log("──────────────────────────────────────");
+    console.log("1️⃣  SCRIPT NO <head>");
+    console.log("   O HTML do <body> ainda NÃO foi lido.");
+
+    // Tentando acessar um elemento que só existe no <body>:
+    const elementoNoHead = document.getElementById("demo-elemento");
+    console.log("   getElementById('demo-elemento') →", elementoNoHead);
+    // Resultado: null  ← o elemento ainda não existe!
+
+    console.log("   ⚠️  Qualquer manipulação de DOM aqui vai falhar.");
+    console.log("──────────────────────────────────────");
+  </script>
+
+</head>
+
+<body>
+
+  <h1>Onde colocar o &lt;script&gt;?</h1>
+  <p>
+    Abra o <strong>Console do navegador (F12 → Console)</strong> para acompanhar
+    a ordem exata em que cada bloco de código é executado.
+  </p>
+
+  <!-- ─────────────────────────────────────────────────────────────────────
+       2. SCRIPT NO MEIO DO <body>  (inline / bloco)
+       O JS executa no momento exato em que o navegador chega nessa linha.
+       Elementos ACIMA deste script já existem; elementos ABAIXO ainda não.
+  ────────────────────────────────────────────────────────────────────── -->
+
+  <h2>2. Script no meio do &lt;body&gt;</h2>
+
+  <!-- Este elemento existe ANTES do script abaixo → pode ser acessado -->
+  <p id="demo-elemento">Eu existo antes do script do meio.</p>
+
+  <script>
+    console.log("──────────────────────────────────────");
+    console.log("2️⃣  SCRIPT NO MEIO DO <body>");
+
+    // Elemento que está ACIMA deste script → encontrado ✔
+    const elementoAcima = document.getElementById("demo-elemento");
+    console.log("   getElementById('demo-elemento') →", elementoAcima);
+
+    // Manipulação funciona para elementos já existentes:
+    elementoAcima.style.color = "green";
+    console.log("   ✅ Elemento acima encontrado e modificado.");
+
+    // Elemento que está ABAIXO deste script → ainda não existe
+    const elementoAbaixo = document.getElementById("resultado-final");
+    console.log("   getElementById('resultado-final') →", elementoAbaixo);
+    // Resultado: null  ← ainda não foi lido pelo navegador
+    console.log("   ⚠️  Elemento abaixo ainda não existe.");
+    console.log("──────────────────────────────────────");
+  </script>
+
+  <p>
+    O parágrafo acima ficou <strong style="color:green">verde</strong> porque o
+    script do meio conseguiu acessá-lo — ele já tinha sido criado.
+  </p>
+
+  <!-- ─────────────────────────────────────────────────────────────────────
+       3. SCRIPT NO FINAL DO <body>
+       Toda a estrutura HTML já foi lida e renderizada.
+       É o lugar mais seguro para manipular o DOM sem usar eventos extras.
+       É também a prática recomendada para scripts que dependem da página.
+  ────────────────────────────────────────────────────────────────────── -->
+
+  <h2>3. Script no final do &lt;body&gt;</h2>
+
+  <p id="resultado-final">Eu serei modificado pelo script do final do body.</p>
+
+  <div class="box ok">
+    <strong>✅ Boa prática:</strong> coloque seus scripts no final do
+    <code>&lt;body&gt;</code> (ou use os atributos <code>defer</code> /
+    <code>async</code> no <code>&lt;head&gt;</code>).
+  </div>
+
+  <hr />
+
+  <h2>Resumo das diferenças</h2>
+
+  <div class="box bad">
+    <strong>❌ &lt;head&gt; sem defer/async</strong><br />
+    → Bloqueia a renderização da página.<br />
+    → DOM ainda não existe: <code>getElementById()</code> retorna <code>null</code>.<br />
+    → Só útil para configurações que não dependem do HTML (ex.: definir variáveis globais).
+  </div>
+
+  <div class="box bad">
+    <strong>⚠️ Meio do &lt;body&gt; (inline)</strong><br />
+    → Acessa apenas os elementos <em>acima</em> dele no HTML.<br />
+    → Bloqueia o carregamento do restante da página enquanto executa.<br />
+    → Pode causar "flash" visual e experiência ruim ao usuário.
+  </div>
+
+  <div class="box ok">
+    <strong>✅ Final do &lt;body&gt;</strong><br />
+    → Todo o DOM já foi construído: acessa qualquer elemento.<br />
+    → A página é renderizada antes de o JS rodar → sem bloqueio visual.<br />
+    → Forma mais simples e recomendada para scripts que manipulam o DOM.
+  </div>
+
+  <div class="box tip">
+    <strong>💡 Alternativas modernas (no &lt;head&gt;):</strong><br />
+    <code>&lt;script <strong>defer</strong> src="..."&gt;</code> → baixa o arquivo em paralelo e executa <em>após</em> o HTML ser lido.<br />
+    <code>&lt;script <strong>async</strong> src="..."&gt;</code> → baixa em paralelo e executa <em>assim que possível</em> (ordem não garantida).
+  </div>
+
+  <h2>Ordem de saída no console</h2>
+  <pre><code>1️⃣  SCRIPT NO &lt;head&gt;              → null (DOM não existe)
+2️⃣  SCRIPT NO MEIO DO &lt;body&gt;     → encontra elementos acima, null para os abaixo
+3️⃣  SCRIPT NO FINAL DO &lt;body&gt;    → acessa qualquer elemento da página</code></pre>
+
+  <!-- Script no final do body ─────────────────────────────────────────── -->
+  <script>
+    console.log("──────────────────────────────────────");
+    console.log("3️⃣  SCRIPT NO FINAL DO <body>");
+    console.log("   Todo o HTML já foi lido e renderizado.");
+
+    // Qualquer elemento da página pode ser acessado agora:
+    const elementoFinal = document.getElementById("resultado-final");
+    console.log("   getElementById('resultado-final') →", elementoFinal);
+
+    elementoFinal.textContent = "✅ Modificado pelo script do final do body!";
+    elementoFinal.style.color = "darkgreen";
+    elementoFinal.style.fontWeight = "bold";
+
+    console.log("   ✅ DOM completo acessível. Esta é a forma recomendada.");
+    console.log("──────────────────────────────────────");
+
+    // Prova da ordem: este log é o último a aparecer
+    console.log("");
+    console.log("📋 ORDEM FINAL DE EXECUÇÃO:");
+    console.log("   head → meio do body → final do body");
+  </script>
+
+</body>
+</html>

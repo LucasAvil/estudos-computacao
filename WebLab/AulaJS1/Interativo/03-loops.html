@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laços de Repetição – JS Básico</title>
+  <link rel="stylesheet" href="css/03-loops.css" />
+</head>
+<body>
+<div class="container">
+
+  <div class="nav"><a href="index.html">← Voltar ao índice</a></div>
+
+  <h1>🔁 Laços de Repetição</h1>
+  <p class="subtitle">Estruturas que repetem um bloco de código enquanto uma condição for verdadeira.</p>
+
+  <!-- ── FOR ── -->
+  <div class="section">
+    <h2>1. for</h2>
+    <p>Usado quando sabemos exatamente quantas vezes queremos repetir. Possui <strong>inicialização</strong>, <strong>condição</strong> e <strong>incremento</strong>.</p>
+    <pre><span class="cmt">// Conta de 1 até 5</span>
+<span class="kw">for</span> (<span class="kw">let</span> i = <span class="num">1</span>; i <= <span class="num">5</span>; i++) {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"Iteração:"</span>, i);
+}
+
+<span class="cmt">// Tabuada do 3</span>
+<span class="kw">for</span> (<span class="kw">let</span> i = <span class="num">1</span>; i <= <span class="num">10</span>; i++) {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">`3 x ${i} = ${</span><span class="num">3</span> * i<span class="str">}`</span>);
+}</pre>
+
+    <div class="interactive">
+      <label>Gere a tabuada de qual número? (1 – 10)</label>
+      <input type="number" id="tabuada-input" placeholder="ex: 7" min="1" max="10" />
+      <button onclick="gerarTabuada()">▶ Executar</button>
+      <div class="result" id="res-for"></div>
+    </div>
+  </div>
+
+  <!-- ── FOR IN ARRAY ── -->
+  <div class="section">
+    <h2>2. for…of em Arrays</h2>
+    <p>Percorre cada elemento de um array de forma simples e legível.</p>
+    <pre><span class="kw">const</span> frutas = [<span class="str">"maçã"</span>, <span class="str">"banana"</span>, <span class="str">"laranja"</span>, <span class="str">"uva"</span>];
+
+<span class="kw">for</span> (<span class="kw">const</span> fruta <span class="kw">of</span> frutas) {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"Fruta:"</span>, fruta);
+}
+<span class="cmt">// Saída: maçã, banana, laranja, uva</span></pre>
+
+    <div class="interactive">
+      <label>Digite itens separados por vírgula:</label>
+      <input type="text" id="forof-input" placeholder="ex: pera, manga, kiwi" />
+      <button onclick="percorrerArray()">▶ Executar</button>
+      <div class="result" id="res-forof"></div>
+    </div>
+
+    <div class="tip">
+      <strong>for…of vs for…in:</strong><br>
+      Use <code>for...of</code> para iterar sobre <em>valores</em> de arrays.<br>
+      Use <code>for...in</code> para iterar sobre <em>chaves</em> de objetos.<br>
+      Evite usar <code>for...in</code> em arrays — pode gerar comportamentos inesperados.
+    </div>
+  </div>
+
+  <!-- ── WHILE ── -->
+  <div class="section">
+    <h2>3. while</h2>
+    <p>Repete enquanto a condição for verdadeira. A condição é verificada <strong>antes</strong> de cada iteração.</p>
+    <pre><span class="kw">let</span> contador = <span class="num">0</span>;
+
+<span class="kw">while</span> (contador < <span class="num">5</span>) {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"contador ="</span>, contador);
+  contador++;
+}
+<span class="cmt">// Exibe 0, 1, 2, 3, 4</span></pre>
+
+    <div class="interactive">
+      <label>Contagem regressiva a partir de:</label>
+      <input type="number" id="while-input" placeholder="ex: 5" min="1" max="20" />
+      <button onclick="contagemRegressiva()">▶ Executar</button>
+      <div class="result" id="res-while"></div>
+    </div>
+
+    <div class="warn">
+      <strong>⚠️ Cuidado com loop infinito!</strong><br>
+      Se a condição do <code>while</code> nunca se tornar falsa, o programa trrava. Sempre garanta que a variável de controle seja modificada dentro do laço.
+    </div>
+  </div>
+
+  <!-- ── DO WHILE ── -->
+  <div class="section">
+    <h2>4. do…while</h2>
+    <p>Similar ao <code>while</code>, mas o bloco é executado <strong>pelo menos uma vez</strong>, pois a condição é verificada no final.</p>
+    <pre><span class="kw">let</span> tentativas = <span class="num">0</span>;
+
+<span class="kw">do</span> {
+  tentativas++;
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"Tentativa:"</span>, tentativas);
+} <span class="kw">while</span> (tentativas < <span class="num">3</span>);
+
+<span class="cmt">// Saída: Tentativa 1, 2, 3</span></pre>
+
+    <div class="interactive">
+      <label>Quantas tentativas simular? (1 – 10)</label>
+      <input type="number" id="dowhile-input" placeholder="ex: 4" min="1" max="10" />
+      <button onclick="simularTentativas()">▶ Executar</button>
+      <div class="result" id="res-dowhile"></div>
+    </div>
+
+    <div class="tip">
+      <strong>💡 Quando usar cada laço?</strong><br>
+      • <strong>for</strong>: quantidade de iterações conhecida (ex: tabuada, percorrer índices).<br>
+      • <strong>for…of</strong>: percorrer todos os itens de um array/string.<br>
+      • <strong>while</strong>: repetir até uma condição ser satisfeita (ex: aguardar entrada).<br>
+      • <strong>do…while</strong>: executar ao menos uma vez (ex: menus, validação de entrada).
+    </div>
+  </div>
+
+  <div class="paginator">
+    <a href="02-condicionais.html">← Condicionais</a>
+    <a href="04-funcoes.html">Próximo: Funções →</a>
+  </div>
+
+</div>
+
+<script>
+  function gerarTabuada() {
+    const n = Number(document.getElementById("tabuada-input").value);
+    if (!n || n < 1 || n > 10) {
+      document.getElementById("res-for").textContent = "⚠️ Digite um número entre 1 e 10.";
+      return;
+    }
+    let saida = "";
+    for (let i = 1; i <= 10; i++) {
+      saida += `${n} × ${i} = ${n * i}\n`;
+    }
+    document.getElementById("res-for").textContent = saida.trim();
+  }
+
+  function percorrerArray() {
+    const valor = document.getElementById("forof-input").value.trim();
+    if (!valor) {
+      document.getElementById("res-forof").textContent = "⚠️ Digite ao menos um item.";
+      return;
+    }
+    const itens = valor.split(",").map(v => v.trim()).filter(v => v);
+    let saida = "";
+    for (const item of itens) {
+      saida += `Item: ${item}\n`;
+    }
+    document.getElementById("res-forof").textContent = saida.trim();
+  }
+
+  function contagemRegressiva() {
+    const inicio = Number(document.getElementById("while-input").value);
+    if (!inicio || inicio < 1 || inicio > 20) {
+      document.getElementById("res-while").textContent = "⚠️ Digite um número entre 1 e 20.";
+      return;
+    }
+    let contador = inicio;
+    let saida = "";
+    while (contador > 0) {
+      saida += `${contador}...\n`;
+      contador--;
+    }
+    saida += "🚀 Lançamento!";
+    document.getElementById("res-while").textContent = saida;
+  }
+
+  function simularTentativas() {
+    const max = Number(document.getElementById("dowhile-input").value);
+    if (!max || max < 1 || max > 10) {
+      document.getElementById("res-dowhile").textContent = "⚠️ Digite um número entre 1 e 10.";
+      return;
+    }
+    let tentativas = 0;
+    let saida = "";
+    do {
+      tentativas++;
+      saida += `Tentativa ${tentativas} realizada.\n`;
+    } while (tentativas < max);
+    saida += `\nTotal: ${tentativas} tentativa(s).`;
+    document.getElementById("res-dowhile").textContent = saida;
+  }
+</script>
+</body>
+</html>

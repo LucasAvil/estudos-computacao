@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Funções – JS Básico</title>
+  <link rel="stylesheet" href="css/04-funcoes.css" />
+</head>
+<body>
+<div class="container">
+
+  <div class="nav"><a href="index.html">← Voltar ao índice</a></div>
+
+  <h1>⚙️ Funções</h1>
+  <p class="subtitle">Funções são blocos de código reutilizáveis que realizam uma tarefa específica.</p>
+
+  <!-- ── DECLARAÇÃO ── -->
+  <div class="section">
+    <h2>1. Declaração de Função <span class="badge">function declaration</span></h2>
+    <p>Forma clássica de criar uma função. Pode ser chamada <strong>antes</strong> da sua declaração no código (hoisting).</p>
+    <pre><span class="kw">function</span> <span class="fn">saudar</span>(nome) {
+  <span class="kw">return</span> <span class="str">`Olá, ${nome}! Bem-vindo(a) ao JS.`</span>;
+}
+
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="fn">saudar</span>(<span class="str">"Ana"</span>));
+<span class="cmt">// Saída: Olá, Ana! Bem-vindo(a) ao JS.</span></pre>
+
+    <div class="interactive">
+      <label>Informe um nome:</label>
+      <input type="text" id="nome-input" placeholder="ex: Carlos" />
+      <button onclick="testarSaudar()">▶ Executar</button>
+      <div class="result" id="res-decl"></div>
+    </div>
+  </div>
+
+  <!-- ── PARÂMETROS E RETORNO ── -->
+  <div class="section">
+    <h2>2. Parâmetros, Argumentos e Retorno</h2>
+    <p>Funções podem receber dados (parâmetros) e devolver um resultado (<code>return</code>).</p>
+    <pre><span class="kw">function</span> <span class="fn">somar</span>(a, b) {
+  <span class="kw">return</span> a + b;
+}
+
+<span class="kw">function</span> <span class="fn">media</span>(a, b, c) {
+  <span class="kw">return</span> (a + b + c) / <span class="num">3</span>;
+}
+
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="fn">somar</span>(<span class="num">4</span>, <span class="num">7</span>));       <span class="cmt">// 11</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="fn">media</span>(<span class="num">6</span>, <span class="num">8</span>, <span class="num">10</span>));   <span class="cmt">// 8</span></pre>
+
+    <div class="interactive">
+      <label>Digite três notas:</label>
+      <div class="row">
+        <input type="number" id="n1" placeholder="Nota 1" />
+        <input type="number" id="n2" placeholder="Nota 2" />
+        <input type="number" id="n3" placeholder="Nota 3" />
+      </div>
+      <button onclick="calcularMedia()">▶ Calcular Média</button>
+      <div class="result" id="res-media"></div>
+    </div>
+  </div>
+
+  <!-- ── EXPRESSÃO DE FUNÇÃO ── -->
+  <div class="section">
+    <h2>3. Expressão de Função <span class="badge">function expression</span></h2>
+    <p>A função é atribuída a uma variável. <strong>Não</strong> sofre hoisting — deve ser declarada antes de ser usada.</p>
+    <pre><span class="kw">const</span> <span class="fn">dobrar</span> = <span class="kw">function</span>(numero) {
+  <span class="kw">return</span> numero * <span class="num">2</span>;
+};
+
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="fn">dobrar</span>(<span class="num">5</span>));  <span class="cmt">// 10</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="fn">dobrar</span>(<span class="num">9</span>));  <span class="cmt">// 18</span></pre>
+
+    <div class="interactive">
+      <label>Digite um número para dobrar:</label>
+      <input type="number" id="dobrar-input" placeholder="ex: 7" />
+      <button onclick="testarDobrar()">▶ Executar</button>
+      <div class="result" id="res-expr"></div>
+    </div>
+  </div>
+
+  <!-- ── ARROW FUNCTION ── -->
+  <div class="section">
+    <h2>4. Arrow Function <span class="badge">ES6+</span></h2>
+    <p>Sintaxe mais curta para escrever funções. Muito usada em callbacks e métodos de array.</p>
+    <pre><span class="cmt">// Forma completa</span>
+<span class="kw">const</span> <span class="fn">multiplicar</span> = (a, b) => {
+  <span class="kw">return</span> a * b;
+};
+
+<span class="cmt">// Forma resumida (retorno implícito)</span>
+<span class="kw">const</span> <span class="fn">quadrado</span> = n => n * n;
+<span class="kw">const</span> <span class="fn">cumprimento</span> = () => <span class="str">"Olá, mundo!"</span>;
+
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="fn">multiplicar</span>(<span class="num">3</span>, <span class="num">4</span>));  <span class="cmt">// 12</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="fn">quadrado</span>(<span class="num">5</span>));       <span class="cmt">// 25</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="fn">cumprimento</span>());      <span class="cmt">// Olá, mundo!</span></pre>
+
+    <div class="interactive">
+      <label>Calcule n² – Digite um número:</label>
+      <input type="number" id="quad-input" placeholder="ex: 8" />
+      <button onclick="testarQuadrado()">▶ Executar</button>
+      <div class="result" id="res-arrow"></div>
+    </div>
+
+    <div class="tip">
+      <strong>💡 Comparação das três formas:</strong><br>
+      <code>function soma(a, b) { return a + b; }</code> → declaração clássica<br>
+      <code>const soma = function(a, b) { return a + b; }</code> → expressão<br>
+      <code>const soma = (a, b) => a + b;</code> → arrow function<br><br>
+      As três fazem o mesmo cálculo. A arrow é mais concisa para funções simples.
+    </div>
+  </div>
+
+  <!-- ── PARÂMETROS PADRÃO ── -->
+  <div class="section">
+    <h2>5. Parâmetros Padrão <span class="badge">ES6+</span></h2>
+    <p>Permite definir um valor padrão para um parâmetro caso ele não seja passado.</p>
+    <pre><span class="kw">function</span> <span class="fn">apresentar</span>(nome, papel = <span class="str">"aluno(a)"</span>) {
+  <span class="kw">return</span> <span class="str">`${nome} é ${papel}.`</span>;
+}
+
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="fn">apresentar</span>(<span class="str">"Lucas"</span>));               <span class="cmt">// Lucas é aluno(a).</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="fn">apresentar</span>(<span class="str">"Prof. Silva"</span>, <span class="str">"professor"</span>)); <span class="cmt">// Prof. Silva é professor.</span></pre>
+
+    <div class="interactive">
+      <label>Nome:</label>
+      <input type="text" id="apres-nome" placeholder="ex: João" />
+      <label>Papel (opcional):</label>
+      <input type="text" id="apres-papel" placeholder="deixe em branco para padrão" />
+      <button onclick="testarApresentar()">▶ Executar</button>
+      <div class="result" id="res-default"></div>
+    </div>
+  </div>
+
+  <div class="paginator">
+    <a href="03-loops.html">← Laços</a>
+    <a href="05-typeof.html">Próximo: typeof →</a>
+  </div>
+
+</div>
+
+<script>
+  function testarSaudar(nome) {
+    const n = document.getElementById("nome-input").value.trim() || "Visitante";
+    function saudar(nome) {
+      return `Olá, ${nome}! Bem-vindo(a) ao JS.`;
+    }
+    document.getElementById("res-decl").textContent = saudar(n);
+  }
+
+  function calcularMedia() {
+    const n1 = parseFloat(document.getElementById("n1").value);
+    const n2 = parseFloat(document.getElementById("n2").value);
+    const n3 = parseFloat(document.getElementById("n3").value);
+    if ([n1, n2, n3].some(isNaN)) {
+      document.getElementById("res-media").textContent = "⚠️ Preencha as três notas.";
+      return;
+    }
+    function media(a, b, c) { return (a + b + c) / 3; }
+    const m = media(n1, n2, n3).toFixed(2);
+    const status = m >= 7 ? "✅ Aprovado(a)" : m >= 5 ? "⚠️ Recuperação" : "❌ Reprovado(a)";
+    document.getElementById("res-media").textContent =
+      `somar(${n1}, ${n2}, ${n3}) / 3 = ${m}\nSituação: ${status}`;
+  }
+
+  function testarDobrar() {
+    const n = Number(document.getElementById("dobrar-input").value);
+    if (isNaN(n) || document.getElementById("dobrar-input").value === "") {
+      document.getElementById("res-expr").textContent = "⚠️ Digite um número válido.";
+      return;
+    }
+    const dobrar = function(numero) { return numero * 2; };
+    document.getElementById("res-expr").textContent = `dobrar(${n}) = ${dobrar(n)}`;
+  }
+
+  function testarQuadrado() {
+    const n = Number(document.getElementById("quad-input").value);
+    if (isNaN(n) || document.getElementById("quad-input").value === "") {
+      document.getElementById("res-arrow").textContent = "⚠️ Digite um número válido.";
+      return;
+    }
+    const quadrado = n => n * n;
+    document.getElementById("res-arrow").textContent = `quadrado(${n}) = ${quadrado(n)}`;
+  }
+
+  function testarApresentar() {
+    const nome = document.getElementById("apres-nome").value.trim();
+    const papel = document.getElementById("apres-papel").value.trim();
+    if (!nome) {
+      document.getElementById("res-default").textContent = "⚠️ Informe um nome.";
+      return;
+    }
+    function apresentar(nome, papel = "aluno(a)") {
+      return `${nome} é ${papel}.`;
+    }
+    document.getElementById("res-default").textContent =
+      papel ? apresentar(nome, papel) : apresentar(nome);
+  }
+</script>
+</body>
+</html>

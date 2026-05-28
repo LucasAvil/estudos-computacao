@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Condicionais – JS Básico</title>
+  <link rel="stylesheet" href="css/02-condicionais.css" />
+</head>
+<body>
+<div class="container">
+
+  <div class="nav"><a href="index.html">← Voltar ao índice</a></div>
+
+  <h1>🔀 Condicionais</h1>
+  <p class="subtitle">Estruturas que permitem executar blocos de código diferentes dependendo de uma condição.</p>
+
+  <!-- ── IF / ELSE ── -->
+  <div class="section">
+    <h2>1. if / else</h2>
+    <p>Executa um bloco se a condição for <strong>verdadeira</strong>, e outro bloco se for <strong>falsa</strong>.</p>
+    <pre><span class="kw">let</span> idade = <span class="num">17</span>;
+
+<span class="kw">if</span> (idade >= <span class="num">18</span>) {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"Maior de idade"</span>);
+} <span class="kw">else</span> {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"Menor de idade"</span>);
+}
+<span class="cmt">// Saída: Menor de idade</span></pre>
+
+    <div class="interactive">
+      <label>Informe uma idade:</label>
+      <input type="number" id="idade-input" placeholder="ex: 20" min="0" max="120" />
+      <button onclick="verificarIdade()">▶ Testar</button>
+      <div class="result" id="res-if"></div>
+    </div>
+  </div>
+
+  <!-- ── IF / ELSE IF ── -->
+  <div class="section">
+    <h2>2. if / else if / else</h2>
+    <p>Permite testar múltiplas condições em sequência.</p>
+    <pre><span class="kw">let</span> nota = <span class="num">72</span>;
+
+<span class="kw">if</span> (nota >= <span class="num">90</span>) {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"Conceito A"</span>);
+} <span class="kw">else if</span> (nota >= <span class="num">70</span>) {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"Conceito B"</span>);
+} <span class="kw">else if</span> (nota >= <span class="num">50</span>) {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"Conceito C"</span>);
+} <span class="kw">else</span> {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"Reprovado"</span>);
+}
+<span class="cmt">// Saída: Conceito B</span></pre>
+
+    <div class="interactive">
+      <label>Informe uma nota (0 – 100):</label>
+      <input type="number" id="nota-input" placeholder="ex: 72" min="0" max="100" />
+      <button onclick="verificarNota()">▶ Testar</button>
+      <div class="result" id="res-elseif"></div>
+    </div>
+  </div>
+
+  <!-- ── SWITCH ── -->
+  <div class="section">
+    <h2>3. switch / case</h2>
+    <p>Ideal quando temos um valor que pode corresponder a múltiplos casos fixos.</p>
+    <pre><span class="kw">let</span> diaSemana = <span class="num">3</span>; <span class="cmt">// 1=Seg, 2=Ter, 3=Qua...</span>
+
+<span class="kw">switch</span> (diaSemana) {
+  <span class="kw">case</span> <span class="num">1</span>:
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"Segunda-feira"</span>);
+    <span class="kw">break</span>;
+  <span class="kw">case</span> <span class="num">2</span>:
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"Terça-feira"</span>);
+    <span class="kw">break</span>;
+  <span class="kw">case</span> <span class="num">3</span>:
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"Quarta-feira"</span>);
+    <span class="kw">break</span>;
+  <span class="kw">case</span> <span class="num">4</span>:
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"Quinta-feira"</span>);
+    <span class="kw">break</span>;
+  <span class="kw">case</span> <span class="num">5</span>:
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"Sexta-feira"</span>);
+    <span class="kw">break</span>;
+  <span class="kw">default</span>:
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"Final de semana"</span>);
+}
+<span class="cmt">// Saída: Quarta-feira</span></pre>
+
+    <div class="interactive">
+      <label>Escolha um dia (1 a 7):</label>
+      <select id="dia-select">
+        <option value="1">1 – Segunda-feira</option>
+        <option value="2">2 – Terça-feira</option>
+        <option value="3">3 – Quarta-feira</option>
+        <option value="4">4 – Quinta-feira</option>
+        <option value="5">5 – Sexta-feira</option>
+        <option value="6">6 – Sábado</option>
+        <option value="7">7 – Domingo</option>
+      </select>
+      <button onclick="verificarDia()">▶ Testar</button>
+      <div class="result" id="res-switch"></div>
+    </div>
+
+    <div class="tip">
+      <strong>⚠️ Não esqueça o <code>break</code>!</strong><br>
+      Sem ele, o JavaScript continua executando os casos seguintes — comportamento chamado de <em>fall-through</em>.
+      O <code>default</code> é executado quando nenhum <code>case</code> corresponde ao valor.
+    </div>
+  </div>
+
+  <div class="paginator">
+    <a href="01-comentarios.html">← Comentários</a>
+    <a href="03-loops.html">Próximo: Laços →</a>
+  </div>
+
+</div>
+
+<script>
+  function verificarIdade() {
+    const idade = Number(document.getElementById("idade-input").value);
+    if (isNaN(idade) || document.getElementById("idade-input").value === "") {
+      document.getElementById("res-if").textContent = "⚠️ Digite uma idade válida.";
+      return;
+    }
+    if (idade >= 18) {
+      document.getElementById("res-if").textContent = `Idade: ${idade} → Maior de idade ✅`;
+    } else {
+      document.getElementById("res-if").textContent = `Idade: ${idade} → Menor de idade ❌`;
+    }
+  }
+
+  function verificarNota() {
+    const nota = Number(document.getElementById("nota-input").value);
+    if (isNaN(nota) || document.getElementById("nota-input").value === "") {
+      document.getElementById("res-elseif").textContent = "⚠️ Digite uma nota válida.";
+      return;
+    }
+    let conceito;
+    if (nota >= 90) {
+      conceito = "Conceito A 🏆";
+    } else if (nota >= 70) {
+      conceito = "Conceito B ✅";
+    } else if (nota >= 50) {
+      conceito = "Conceito C ⚠️";
+    } else {
+      conceito = "Reprovado ❌";
+    }
+    document.getElementById("res-elseif").textContent = `Nota: ${nota} → ${conceito}`;
+  }
+
+  function verificarDia() {
+    const dia = Number(document.getElementById("dia-select").value);
+    let nome;
+    switch (dia) {
+      case 1: nome = "Segunda-feira"; break;
+      case 2: nome = "Terça-feira";   break;
+      case 3: nome = "Quarta-feira";  break;
+      case 4: nome = "Quinta-feira";  break;
+      case 5: nome = "Sexta-feira";   break;
+      case 6: nome = "Sábado 🎉";     break;
+      case 7: nome = "Domingo 😴";    break;
+      default: nome = "Dia inválido";
+    }
+    document.getElementById("res-switch").textContent = `Dia ${dia} → ${nome}`;
+  }
+</script>
+</body>
+</html>

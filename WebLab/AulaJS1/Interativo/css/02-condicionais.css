@@ -1,0 +1,77 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; padding: 30px 20px; }
+.container { max-width: 860px; margin: 0 auto; }
+.nav { margin-bottom: 30px; }
+.nav a { color: #f1c40f; text-decoration: none; font-size: 0.9rem; }
+.nav a:hover { text-decoration: underline; }
+h1 { font-size: 2rem; color: #f1c40f; margin-bottom: 8px; }
+.subtitle { color: #94a3b8; margin-bottom: 40px; font-size: 1rem; }
+.section { margin-bottom: 50px; }
+.section h2 { font-size: 1.3rem; color: #38bdf8; border-left: 4px solid #38bdf8; padding-left: 12px; margin-bottom: 16px; }
+.section p { color: #cbd5e1; line-height: 1.7; margin-bottom: 14px; }
+pre {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 20px;
+  font-size: 0.93rem;
+  line-height: 1.75;
+  overflow-x: auto;
+  margin-bottom: 12px;
+}
+.kw  { color: #569cd6; }
+.str { color: #ce9178; }
+.fn  { color: #dcdcaa; }
+.num { color: #b5cea8; }
+.cmt { color: #6a9955; }
+.interactive {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 16px;
+}
+.interactive label { display: block; color: #94a3b8; font-size: 0.88rem; margin-bottom: 6px; }
+.interactive input, .interactive select {
+  background: #0f172a;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  color: #e2e8f0;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  width: 100%;
+  margin-bottom: 12px;
+}
+button {
+  background: #f1c40f;
+  color: #0f172a;
+  border: none;
+  border-radius: 6px;
+  padding: 9px 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+button:hover { background: #fde047; }
+.result {
+  margin-top: 12px;
+  padding: 12px 16px;
+  background: #0d1117;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.95rem;
+  color: #3fb950;
+  min-height: 36px;
+}
+.tip {
+  background: #172554;
+  border: 1px solid #1e40af;
+  border-radius: 8px;
+  padding: 14px 18px;
+  color: #93c5fd;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-top: 16px;
+}
+.paginator { margin-top: 40px; display: flex; justify-content: space-between; }
+.paginator a { color: #f1c40f; text-decoration: none; font-size: 0.95rem; }

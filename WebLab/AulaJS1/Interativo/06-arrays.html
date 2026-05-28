@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arrays – JS Básico</title>
+  <link rel="stylesheet" href="css/06-arrays.css" />
+</head>
+<body>
+<div class="container">
+
+  <div class="nav"><a href="index.html">← Voltar ao índice</a></div>
+
+  <h1>📦 Arrays</h1>
+  <p class="subtitle">Arrays são listas ordenadas que armazenam múltiplos valores em uma única variável.</p>
+
+  <!-- ── CRIAÇÃO E ACESSO ── -->
+  <div class="section">
+    <h2>1. Criação e Acesso</h2>
+    <p>Arrays são criados com colchetes <code>[]</code>. Os índices começam em <strong>0</strong>.</p>
+    <pre><span class="kw">const</span> frutas = [<span class="str">"maçã"</span>, <span class="str">"banana"</span>, <span class="str">"laranja"</span>, <span class="str">"uva"</span>];
+
+<span class="fn">console</span>.<span class="fn">log</span>(frutas[<span class="num">0</span>]);           <span class="cmt">// "maçã"  (primeiro)</span>
+<span class="fn">console</span>.<span class="fn">log</span>(frutas[<span class="num">2</span>]);           <span class="cmt">// "laranja"</span>
+<span class="fn">console</span>.<span class="fn">log</span>(frutas.length);        <span class="cmt">// 4</span>
+<span class="fn">console</span>.<span class="fn">log</span>(frutas[frutas.length - <span class="num">1</span>]); <span class="cmt">// "uva" (último)</span></pre>
+
+    <div class="interactive">
+      <label>Digite itens para criar um array (separados por vírgula):</label>
+      <input type="text" id="array-input" value="maçã, banana, laranja, uva" />
+      <button onclick="visualizarArray()">▶ Visualizar Array</button>
+      <div class="array-visual" id="array-visual"></div>
+      <div class="result" id="res-acesso"></div>
+    </div>
+  </div>
+
+  <!-- ── PUSH / POP / SHIFT / UNSHIFT ── -->
+  <div class="section">
+    <h2>2. Adicionando e Removendo elementos</h2>
+    <pre><span class="kw">const</span> nums = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>];
+
+nums.<span class="fn">push</span>(<span class="num">4</span>);      <span class="cmt">// adiciona no fim     → [1, 2, 3, 4]</span>
+nums.<span class="fn">pop</span>();       <span class="cmt">// remove do fim      → [1, 2, 3]</span>
+nums.<span class="fn">unshift</span>(<span class="num">0</span>); <span class="cmt">// adiciona no início  → [0, 1, 2, 3]</span>
+nums.<span class="fn">shift</span>();     <span class="cmt">// remove do início   → [1, 2, 3]</span>
+
+<span class="fn">console</span>.<span class="fn">log</span>(nums); <span class="cmt">// [1, 2, 3]</span></pre>
+
+    <div class="interactive">
+      <p style="color:#94a3b8; font-size:0.88rem; margin-bottom:12px;">Array atual: <span id="array-atual" style="color:#38bdf8; font-family:monospace;">[1, 2, 3]</span></p>
+      <input type="text" id="push-val" placeholder="Valor para push/unshift (opcional)" />
+      <div class="btn-row">
+        <button onclick="doOp('push')">push()</button>
+        <button onclick="doOp('pop')" class="secondary">pop()</button>
+        <button onclick="doOp('unshift')">unshift()</button>
+        <button onclick="doOp('shift')" class="secondary">shift()</button>
+        <button onclick="resetArray()" class="secondary">↺ Resetar</button>
+      </div>
+      <div class="result" id="res-ops"></div>
+    </div>
+  </div>
+
+  <!-- ── ITERAÇÃO ── -->
+  <div class="section">
+    <h2>3. Percorrendo Arrays</h2>
+    <pre><span class="kw">const</span> notas = [<span class="num">7</span>, <span class="num">9</span>, <span class="num">4</span>, <span class="num">8</span>, <span class="num">6</span>];
+
+<span class="cmt">// forEach – executa uma função para cada elemento</span>
+notas.<span class="fn">forEach</span>((nota, indice) => {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">`[${indice}] Nota: ${nota}`</span>);
+});
+
+<span class="cmt">// for...of</span>
+<span class="kw">for</span> (<span class="kw">const</span> nota <span class="kw">of</span> notas) {
+  <span class="fn">console</span>.<span class="fn">log</span>(nota);
+}</pre>
+
+    <div class="interactive">
+      <label>Notas (separadas por vírgula):</label>
+      <input type="text" id="notas-input" value="7, 9, 4, 8, 6" />
+      <button onclick="percorrerNotas()">▶ Executar forEach</button>
+      <div class="result" id="res-foreach"></div>
+    </div>
+  </div>
+
+  <!-- ── MAP / FILTER / FIND ── -->
+  <div class="section">
+    <h2>4. map, filter e find</h2>
+    <p>Métodos de alta ordem — recebem uma função como argumento e retornam um resultado.</p>
+    <pre><span class="kw">const</span> precos = [<span class="num">10</span>, <span class="num">25</span>, <span class="num">5</span>, <span class="num">40</span>, <span class="num">15</span>];
+
+<span class="cmt">// map → transforma cada elemento, retorna novo array</span>
+<span class="kw">const</span> comDesconto = precos.<span class="fn">map</span>(p => p * <span class="num">0.9</span>);
+<span class="fn">console</span>.<span class="fn">log</span>(comDesconto); <span class="cmt">// [9, 22.5, 4.5, 36, 13.5]</span>
+
+<span class="cmt">// filter → filtra elementos que passam no teste</span>
+<span class="kw">const</span> caros = precos.<span class="fn">filter</span>(p => p > <span class="num">15</span>);
+<span class="fn">console</span>.<span class="fn">log</span>(caros);       <span class="cmt">// [25, 40]</span>
+
+<span class="cmt">// find → retorna o primeiro elemento que passa no teste</span>
+<span class="kw">const</span> primeiro = precos.<span class="fn">find</span>(p => p > <span class="num">10</span>);
+<span class="fn">console</span>.<span class="fn">log</span>(primeiro);    <span class="cmt">// 25</span></pre>
+
+    <div class="interactive">
+      <label>Preços (separados por vírgula):</label>
+      <input type="text" id="precos-input" value="10, 25, 5, 40, 15" />
+      <div class="btn-row">
+        <button onclick="aplicarMap()">map (−10%)</button>
+        <button onclick="aplicarFilter()">filter (&gt; 15)</button>
+        <button onclick="aplicarFind()">find (1º &gt; 10)</button>
+      </div>
+      <div class="result" id="res-hof"></div>
+    </div>
+  </div>
+
+  <!-- ── OUTROS MÉTODOS ── -->
+  <div class="section">
+    <h2>5. Outros métodos importantes</h2>
+    <div class="methods-grid">
+      <div class="method-card">
+        <code>includes()</code>
+        <p>Verifica se um elemento existe no array. Retorna boolean.</p>
+      </div>
+      <div class="method-card">
+        <code>indexOf()</code>
+        <p>Retorna o índice do elemento, ou −1 se não encontrar.</p>
+      </div>
+      <div class="method-card">
+        <code>join()</code>
+        <p>Une todos os elementos em uma string com separador.</p>
+      </div>
+      <div class="method-card">
+        <code>reverse()</code>
+        <p>Inverte a ordem dos elementos no próprio array.</p>
+      </div>
+      <div class="method-card">
+        <code>sort()</code>
+        <p>Ordena os elementos (cuidado com números — precisa de comparador).</p>
+      </div>
+      <div class="method-card">
+        <code>slice()</code>
+        <p>Retorna uma cópia parcial do array sem modificar o original.</p>
+      </div>
+      <div class="method-card">
+        <code>splice()</code>
+        <p>Remove, substitui ou insere elementos no array.</p>
+      </div>
+      <div class="method-card">
+        <code>reduce()</code>
+        <p>Acumula todos os elementos em um único valor (ex: soma total).</p>
+      </div>
+    </div>
+
+    <pre><span class="kw">const</span> letras = [<span class="str">"c"</span>, <span class="str">"a"</span>, <span class="str">"b"</span>];
+
+<span class="fn">console</span>.<span class="fn">log</span>(letras.<span class="fn">includes</span>(<span class="str">"a"</span>));  <span class="cmt">// true</span>
+<span class="fn">console</span>.<span class="fn">log</span>(letras.<span class="fn">indexOf</span>(<span class="str">"b"</span>));   <span class="cmt">// 2</span>
+<span class="fn">console</span>.<span class="fn">log</span>(letras.<span class="fn">join</span>(<span class="str">" - "</span>));    <span class="cmt">// "c - a - b"</span>
+<span class="fn">console</span>.<span class="fn">log</span>(letras.<span class="fn">sort</span>());        <span class="cmt">// ["a", "b", "c"]</span>
+
+<span class="kw">const</span> nums = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>];
+<span class="kw">const</span> soma = nums.<span class="fn">reduce</span>((acc, val) => acc + val, <span class="num">0</span>);
+<span class="fn">console</span>.<span class="fn">log</span>(soma); <span class="cmt">// 15</span></pre>
+
+    <button onclick="executarOutros()">▶ Executar</button>
+    <div class="result" id="res-outros"></div>
+  </div>
+
+  <div class="tip">
+    <strong>💡 Resumo rápido:</strong><br>
+    • <code>push/pop</code> → fim do array &nbsp;|&nbsp; <code>unshift/shift</code> → início do array<br>
+    • <code>map</code> → transforma &nbsp;|&nbsp; <code>filter</code> → filtra &nbsp;|&nbsp; <code>find</code> → busca o primeiro<br>
+    • <code>reduce</code> → acumula num único valor &nbsp;|&nbsp; <code>forEach</code> → itera sem retorno<br>
+    • Arrays têm <code>.length</code> e índice começa em <strong>0</strong>.
+  </div>
+
+  <div class="paginator">
+    <a href="05-typeof.html">← typeof</a>
+    <a href="index.html">← Voltar ao índice</a>
+  </div>
+
+</div>
+
+<script>
+  // ── Seção 1 ──
+  function visualizarArray() {
+    const raw = document.getElementById("array-input").value;
+    const itens = raw.split(",").map(s => s.trim()).filter(s => s);
+    const visual = document.getElementById("array-visual");
+    visual.innerHTML = itens.map((item, i) =>
+      `<div class="array-cell"><span class="idx">[${i}]</span>${item}</div>`
+    ).join("");
+
+    const out = [
+      `Array: [${itens.map(i => `"${i}"`).join(", ")}]`,
+      `length: ${itens.length}`,
+      `Primeiro: "${itens[0]}"`,
+      `Último:   "${itens[itens.length - 1]}"`
+    ].join("\n");
+    document.getElementById("res-acesso").textContent = out;
+  }
+  visualizarArray();
+
+  // ── Seção 2 ──
+  let meuArray = [1, 2, 3];
+  function atualizarAtual() {
+    document.getElementById("array-atual").textContent = JSON.stringify(meuArray);
+  }
+  function resetArray() {
+    meuArray = [1, 2, 3];
+    atualizarAtual();
+    document.getElementById("res-ops").textContent = "Array resetado.";
+  }
+  function doOp(op) {
+    const val = document.getElementById("push-val").value.trim();
+    const parsed = isNaN(val) || val === "" ? val : Number(val);
+    let log = "";
+    if (op === "push") {
+      const v = val || Math.floor(Math.random() * 10) + 4;
+      meuArray.push(isNaN(v) ? v : Number(v));
+      log = `push(${v}) executado`;
+    } else if (op === "pop") {
+      if (!meuArray.length) { document.getElementById("res-ops").textContent = "Array vazio!"; return; }
+      const removed = meuArray.pop();
+      log = `pop() removeu: ${removed}`;
+    } else if (op === "unshift") {
+      const v = val || 0;
+      meuArray.unshift(isNaN(v) ? v : Number(v));
+      log = `unshift(${v}) executado`;
+    } else if (op === "shift") {
+      if (!meuArray.length) { document.getElementById("res-ops").textContent = "Array vazio!"; return; }
+      const removed = meuArray.shift();
+      log = `shift() removeu: ${removed}`;
+    }
+    atualizarAtual();
+    document.getElementById("res-ops").textContent = log + "\nArray agora: " + JSON.stringify(meuArray);
+  }
+
+  // ── Seção 3 ──
+  function percorrerNotas() {
+    const raw = document.getElementById("notas-input").value;
+    const notas = raw.split(",").map(s => parseFloat(s.trim())).filter(n => !isNaN(n));
+    let saida = "";
+    notas.forEach((nota, i) => { saida += `[${i}] Nota: ${nota}\n`; });
+    const media = (notas.reduce((a, b) => a + b, 0) / notas.length).toFixed(2);
+    saida += `\nMédia: ${media}`;
+    document.getElementById("res-foreach").textContent = saida;
+  }
+
+  // ── Seção 4 ──
+  function getPrecos() {
+    return document.getElementById("precos-input").value
+      .split(",").map(s => parseFloat(s.trim())).filter(n => !isNaN(n));
+  }
+  function aplicarMap() {
+    const p = getPrecos();
+    const resultado = p.map(v => +(v * 0.9).toFixed(2));
+    document.getElementById("res-hof").textContent =
+      `Original:    [${p.join(", ")}]\nmap(−10%):   [${resultado.join(", ")}]`;
+  }
+  function aplicarFilter() {
+    const p = getPrecos();
+    const resultado = p.filter(v => v > 15);
+    document.getElementById("res-hof").textContent =
+      `Original:     [${p.join(", ")}]\nfilter(> 15): [${resultado.join(", ")}]`;
+  }
+  function aplicarFind() {
+    const p = getPrecos();
+    const resultado = p.find(v => v > 10);
+    document.getElementById("res-hof").textContent =
+      `Original:      [${p.join(", ")}]\nfind(1º > 10): ${resultado ?? "não encontrado"}`;
+  }
+
+  // ── Seção 5 ──
+  function executarOutros() {
+    const letras = ["c", "a", "b"];
+    const nums = [1, 2, 3, 4, 5];
+    const soma = nums.reduce((acc, val) => acc + val, 0);
+    const saida = [
+      `letras = ${JSON.stringify(letras)}`,
+      `includes("a")  → ${letras.includes("a")}`,
+      `indexOf("b")   → ${letras.indexOf("b")}`,
+      `join(" - ")    → "${letras.join(" - ")}"`,
+      `sort()         → ${JSON.stringify([...letras].sort())}`,
+      ``,
+      `nums = ${JSON.stringify(nums)}`,
+      `reduce(soma)   → ${soma}`
+    ].join("\n");
+    document.getElementById("res-outros").textContent = saida;
+  }
+</script>
+</body>
+</html>

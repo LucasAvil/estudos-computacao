@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comentários – JS Básico</title>
+  <link rel="stylesheet" href="css/01-comentarios.css" />
+</head>
+<body>
+<div class="container">
+
+  <div class="nav"><a href="index.html">← Voltar ao índice</a></div>
+
+  <h1>💬 Comentários em JavaScript</h1>
+  <p class="subtitle">Comentários são trechos de código ignorados pelo interpretador — servem para explicar e documentar.</p>
+
+  <!-- ── SEÇÃO 1 ── -->
+  <div class="section">
+    <h2>1. Comentário de linha única ( // )</h2>
+    <p>Use <strong>//</strong> para comentar uma única linha ou o final de uma linha de código.</p>
+    <pre><span class="comment">// Este é um comentário de linha única</span>
+<span class="keyword">let</span> nome = <span class="string">"Maria"</span>; <span class="comment">// guarda o nome da usuária</span>
+
+<span class="fn">console</span>.<span class="fn">log</span>(nome); <span class="comment">// exibe: Maria</span></pre>
+
+    <button onclick="executar1()">▶ Executar</button>
+    <div class="output-box" style="margin-top:10px">
+      <p>Saída no console:</p>
+      <div id="output1"></div>
+    </div>
+  </div>
+
+  <!-- ── SEÇÃO 2 ── -->
+  <div class="section">
+    <h2>2. Comentário de múltiplas linhas ( /* … */ )</h2>
+    <p>Use <strong>/* */</strong> para comentar blocos maiores de texto.</p>
+    <pre><span class="comment">/*
+  Função que calcula a área de um retângulo.
+  Parâmetros:
+    largura – número em metros
+    altura  – número em metros
+  Retorno: área em m²
+*/</span>
+<span class="keyword">function</span> <span class="fn">area</span>(largura, altura) {
+  <span class="keyword">return</span> largura * altura;
+}
+
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="fn">area</span>(<span class="num">5</span>, <span class="num">3</span>)); <span class="comment">// 15</span></pre>
+
+    <button onclick="executar2()">▶ Executar</button>
+    <div class="output-box" style="margin-top:10px">
+      <p>Saída no console:</p>
+      <div id="output2"></div>
+    </div>
+  </div>
+
+  <!-- ── SEÇÃO 3 ── -->
+  <div class="section">
+    <h2>3. Comentando código temporariamente</h2>
+    <p>Comentar linhas é útil para desativar código durante testes sem apagá-lo.</p>
+    <pre><span class="keyword">let</span> resultado = <span class="num">10</span> + <span class="num">5</span>;
+
+<span class="comment">// console.log("Versão antiga:", resultado * 2);</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="string">"Resultado:"</span>, resultado);</pre>
+
+    <button onclick="executar3()">▶ Executar</button>
+    <div class="output-box" style="margin-top:10px">
+      <p>Saída no console:</p>
+      <div id="output3"></div>
+    </div>
+  </div>
+
+  <!-- ── DICA ── -->
+  <div class="tip">
+    <strong>💡 Boas práticas:</strong><br>
+    • Comente o <em>porquê</em>, não o <em>o quê</em> — o código já mostra o que está fazendo.<br>
+    • Evite comentários óbvios: <code>// soma a + b</code> antes de <code>a + b</code> não agrega valor.<br>
+    • Prefira nomes de variáveis e funções descritivos para reduzir a necessidade de comentários.
+  </div>
+
+  <div style="margin-top:40px; display:flex; justify-content:flex-end;">
+    <a href="02-condicionais.html" style="color:#f1c40f; text-decoration:none; font-size:0.95rem;">Próximo: Condicionais →</a>
+  </div>
+
+</div>
+
+<script>
+  function executar1() {
+    let nome = "Maria";
+    document.getElementById("output1").textContent = nome;
+  }
+
+  function executar2() {
+    function area(largura, altura) {
+      return largura * altura;
+    }
+    document.getElementById("output2").textContent = area(5, 3);
+  }
+
+  function executar3() {
+    let resultado = 10 + 5;
+    // console.log("Versão antiga:", resultado * 2);
+    document.getElementById("output3").textContent = "Resultado: " + resultado;
+  }
+</script>
+</body>
+</html>

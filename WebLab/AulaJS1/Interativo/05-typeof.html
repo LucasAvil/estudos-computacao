@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>typeof – JS Básico</title>
+  <link rel="stylesheet" href="css/05-typeof.css" />
+</head>
+<body>
+<div class="container">
+
+  <div class="nav"><a href="index.html">← Voltar ao índice</a></div>
+
+  <h1>🔍 typeof</h1>
+  <p class="subtitle">O operador <code>typeof</code> retorna uma string indicando o tipo do valor de uma expressão.</p>
+
+  <!-- ── OS TIPOS ── -->
+  <div class="section">
+    <h2>1. Os tipos primitivos do JavaScript</h2>
+    <p>JavaScript possui 7 tipos primitivos. Use <code>typeof</code> para inspecionar qualquer valor.</p>
+    <table class="types-table">
+      <tr>
+        <th>Tipo</th>
+        <th>typeof retorna</th>
+        <th>Exemplo de valor</th>
+      </tr>
+      <tr>
+        <td>String</td>
+        <td><span class="tag tag-string">"string"</span></td>
+        <td><code>"Olá"</code>, <code>'mundo'</code>, <code>`template`</code></td>
+      </tr>
+      <tr>
+        <td>Number</td>
+        <td><span class="tag tag-number">"number"</span></td>
+        <td><code>42</code>, <code>3.14</code>, <code>-7</code>, <code>NaN</code></td>
+      </tr>
+      <tr>
+        <td>Boolean</td>
+        <td><span class="tag tag-boolean">"boolean"</span></td>
+        <td><code>true</code>, <code>false</code></td>
+      </tr>
+      <tr>
+        <td>Undefined</td>
+        <td><span class="tag tag-undef">"undefined"</span></td>
+        <td>variável declarada mas sem valor</td>
+      </tr>
+      <tr>
+        <td>Null</td>
+        <td><span class="tag tag-null">"object"</span> ⚠️</td>
+        <td><code>null</code></td>
+      </tr>
+      <tr>
+        <td>Object</td>
+        <td><span class="tag tag-object">"object"</span></td>
+        <td><code>{}</code>, <code>[]</code>, <code>new Date()</code></td>
+      </tr>
+      <tr>
+        <td>Function</td>
+        <td><span class="tag tag-function">"function"</span></td>
+        <td><code>function(){}</code>, <code>() => {}</code></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ── EXEMPLOS ── -->
+  <div class="section">
+    <h2>2. typeof na prática</h2>
+    <pre><span class="fn">console</span>.<span class="fn">log</span>(<span class="kw">typeof</span> <span class="str">"Weblab"</span>);     <span class="cmt">// "string"</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="kw">typeof</span> <span class="num">42</span>);           <span class="cmt">// "number"</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="kw">typeof</span> <span class="num">3.14</span>);         <span class="cmt">// "number"</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="kw">typeof</span> <span class="kw">true</span>);         <span class="cmt">// "boolean"</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="kw">typeof</span> <span class="kw">undefined</span>);   <span class="cmt">// "undefined"</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="kw">typeof</span> <span class="kw">null</span>);        <span class="cmt">// "object" ← comportamento histórico do JS</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="kw">typeof</span> {});           <span class="cmt">// "object"</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="kw">typeof</span> []);           <span class="cmt">// "object" ← arrays também são objetos!</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="kw">typeof</span> <span class="kw">function</span>(){}); <span class="cmt">// "function"</span></pre>
+
+    <button onclick="executarExemplos()">▶ Executar todos</button>
+    <div class="result" id="res-exemplos"></div>
+  </div>
+
+  <!-- ── VERIFICAÇÃO COM IF ── -->
+  <div class="section">
+    <h2>3. Usando typeof com condicionais</h2>
+    <p>Muito comum verificar o tipo antes de processar um dado.</p>
+    <pre><span class="kw">function</span> <span class="fn">somar</span>(a, b) {
+  <span class="kw">if</span> (<span class="kw">typeof</span> a <span class="op">!==</span> <span class="str">"number"</span> <span class="op">||</span> <span class="kw">typeof</span> b <span class="op">!==</span> <span class="str">"number"</span>) {
+    <span class="kw">return</span> <span class="str">"Erro: ambos precisam ser números."</span>;
+  }
+  <span class="kw">return</span> a + b;
+}
+
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="fn">somar</span>(<span class="num">3</span>, <span class="num">4</span>));          <span class="cmt">// 7</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="fn">somar</span>(<span class="str">"3"</span>, <span class="num">4</span>));        <span class="cmt">// Erro: ambos precisam ser números.</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="fn">somar</span>(<span class="str">"oi"</span>, <span class="str">"tchau"</span>));  <span class="cmt">// Erro: ambos precisam ser números.</span></pre>
+
+    <div class="interactive">
+      <label>Valor A:</label>
+      <input type="text" id="val-a" placeholder='ex: 10 ou "oi"' />
+      <label>Valor B:</label>
+      <input type="text" id="val-b" placeholder='ex: 5 ou true' />
+      <button onclick="testarSoma()">▶ Testar somar()</button>
+      <div class="result" id="res-typeof-if"></div>
+    </div>
+
+    <div class="warn">
+      <strong>⚠️ Pegadinha do null:</strong><br>
+      <code>typeof null === "object"</code> é um bug histórico do JavaScript que nunca foi corrigido por compatibilidade.
+      Para verificar se algo é <code>null</code> de verdade, use <code>valor === null</code>.
+    </div>
+
+    <div class="tip">
+      <strong>💡 Como verificar se é um Array?</strong><br>
+      <code>typeof []</code> retorna <code>"object"</code>, então use:<br>
+      <code>Array.isArray([])</code> → <code>true</code><br>
+      <code>Array.isArray({})</code> → <code>false</code>
+    </div>
+  </div>
+
+  <!-- ── DETECTOR INTERATIVO ── -->
+  <div class="section">
+    <h2>4. Detector de tipo interativo</h2>
+    <p>Digite qualquer expressão e descubra o tipo que o JavaScript atribuiria.</p>
+
+    <div class="interactive">
+      <label>Valor para inspecionar:</label>
+      <input type="text" id="detector-input" placeholder='ex: 42, "texto", true, null' />
+      <button onclick="detectarTipo()">▶ Verificar tipo</button>
+      <div class="result" id="res-detector"></div>
+    </div>
+  </div>
+
+  <div class="paginator">
+    <a href="04-funcoes.html">← Funções</a>
+    <a href="06-arrays.html">Próximo: Arrays →</a>
+  </div>
+
+</div>
+
+<script>
+  function executarExemplos() {
+    const pares = [
+      ['"Weblab"',    "Weblab"],
+      ['42',          42],
+      ['3.14',        3.14],
+      ['true',        true],
+      ['undefined',   undefined],
+      ['null',        null],
+      ['{}',          {}],
+      ['[]',          []],
+      ['function(){}', function(){}]
+    ];
+    const linhas = pares.map(([label, val]) => `typeof ${label.padEnd(16)} → "${typeof val}"`);
+    document.getElementById("res-exemplos").textContent = linhas.join("\n");
+  }
+
+  function testarSoma() {
+    const rawA = document.getElementById("val-a").value.trim();
+    const rawB = document.getElementById("val-b").value.trim();
+
+    function parseVal(s) {
+      if (s === "true")  return true;
+      if (s === "false") return false;
+      if (s === "null")  return null;
+      if (s === "undefined") return undefined;
+      if (!isNaN(s) && s !== "") return Number(s);
+      return s;
+    }
+
+    const a = parseVal(rawA);
+    const b = parseVal(rawB);
+
+    function somar(a, b) {
+      if (typeof a !== "number" || typeof b !== "number") {
+        return "Erro: ambos precisam ser números.";
+      }
+      return a + b;
+    }
+
+    const resultado = somar(a, b);
+    document.getElementById("res-typeof-if").textContent =
+      `typeof a = "${typeof a}"\ntypeof b = "${typeof b}"\nsomar(${rawA}, ${rawB}) = ${resultado}`;
+  }
+
+  function detectarTipo() {
+    const raw = document.getElementById("detector-input").value.trim();
+    if (!raw) {
+      document.getElementById("res-detector").textContent = "⚠️ Digite algo para analisar.";
+      return;
+    }
+
+    let val, tipo;
+    try {
+      val = Function('"use strict"; return (' + raw + ')')();
+      tipo = typeof val;
+    } catch (e) {
+      document.getElementById("res-detector").textContent = "⚠️ Expressão inválida.";
+      return;
+    }
+
+    let extra = "";
+    if (val === null)         extra = " (cuidado: typeof null = \"object\" — bug histórico)";
+    if (Array.isArray(val))   extra = " (é um Array — Array.isArray() retorna true)";
+
+    document.getElementById("res-detector").textContent =
+      `Valor: ${JSON.stringify(val)}\ntypeof → "${tipo}"${extra}`;
+  }
+</script>
+</body>
+</html>
