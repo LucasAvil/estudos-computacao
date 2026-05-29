@@ -557,21 +557,112 @@
 # ==============================================================================
 # ATIVIDADE 06 - funções
 # ============================================================================== 
-def  subtotal_item(preco, qtd):
-    return preco * qtd
-def total_compra(itens):
-    soma = 0
-    for i in itens:
-            if i[1] < 0 or i[2] < 0:
-                 return None
+# def  subtotal_item(preco, qtd):
+#     return preco * qtd
+# def total_compra(itens):
+#     soma = 0
+#     for i in itens:
+#             if i[1] < 0 or i[2] < 0:
+#                  return None
             
-            soma += subtotal_item(i[1], i[2])
+#             soma += subtotal_item(i[1], i[2])
+#     return soma
+
+# def aplicar_desconto(total, percentual):
+#      desconto = total * percentual / 100
+#      return total - desconto
+
+# itens = [('feijao', 6.5, 2), ('farinha', 7.0, 1)]
+# print(total_compra(itens)) 
+# print(aplicar_desconto(20.0, 10))
+# ==============================================================================
+# ATIVIDADE 07 - funções
+# ==============================================================================
+# def eh_primo(n):
+#     if n <= 1:
+#         return False
+#     limite = int(n ** 0.5) + 1
+
+#     for i in range (2, limite):
+#         if n % i == 0:
+#             return False
+#     return True
+
+# def proximo_primo(n):
+
+#     while eh_primo(n) == False:
+#         n += 1
+    
+#     return n
+
+# def listar_primos(inicio, fim):
+#     lista = []
+#     for i in range (inicio, fim + 1):
+#         if eh_primo(i):
+
+#             lista.append(i)
+
+#     return lista
+        
+# print(eh_primo(2))
+# print(eh_primo(21))
+# print(proximo_primo(22))
+# print(listar_primos(10, 20))
+# ==============================================================================
+# ATIVIDADE 08 - funções
+# ==============================================================================
+# def proximo_collatz(n):
+#     if n % 2 == 0:
+#         n = n//2
+#     else:
+#         n = 3 * n + 1
+#     return n
+
+# def sequencia_collatz(n):
+#     lista = [n]
+#     while n != 1:
+#         n = proximo_collatz(n)
+#         lista.append(n)
+
+#     return lista
+
+# def comprimento_collatz(n):
+#     return len(sequencia_collatz(n))
+
+# print(proximo_collatz(6))
+# print(sequencia_collatz(6))
+# print(comprimento_collatz(6))
+# ==============================================================================
+# ATIVIDADE 09 - funções
+# ==============================================================================
+def eh_matriz_retangular(m):
+    if m == []:
+        return False
+    padrao = len(m[0])
+    for i in range (len(m)):
+        if len(m[i]) != padrao:
+            return False
+    return True
+
+def soma_linhas(m):
+    if eh_matriz_retangular(m) == False:
+        return None
+    soma = []
+    for i in range(len(m)):
+        soma.append(sum(m[i]))
     return soma
 
-def aplicar_desconto(total, percentual):
-     desconto = total * percentual / 100
-     return total - desconto
+def soma_colunas(m):
+    if eh_matriz_retangular(m) == False:
+        return None
+    soma = []
+    for i in range (len(m[0])):
+        soma.append(m[0][i] + m[1][i])
+    return soma
 
-itens = [('feijao', 6.5, 2), ('farinha', 7.0, 1)]
-print(total_compra(itens)) 
-print(aplicar_desconto(20.0, 10))
+
+m = [[1, 2, 3], [4, 5, 6,], [1]]
+
+print(eh_matriz_retangular(m))
+print(soma_linhas(m))
+print(soma_colunas(m))
