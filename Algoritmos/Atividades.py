@@ -610,7 +610,7 @@
 # print(listar_primos(10, 20))
 # ==============================================================================
 # ATIVIDADE 08 - funções
-# ==============================================================================
+# # ==============================================================================
 # def proximo_collatz(n):
 #     if n % 2 == 0:
 #         n = n//2
@@ -635,34 +635,66 @@
 # ==============================================================================
 # ATIVIDADE 09 - funções
 # ==============================================================================
-def eh_matriz_retangular(m):
-    if m == []:
-        return False
-    padrao = len(m[0])
-    for i in range (len(m)):
-        if len(m[i]) != padrao:
-            return False
-    return True
+# def eh_matriz_retangular(m):
+#     if m == []:
+#         return False
+#     padrao = len(m[0])
+#     for i in range (len(m)):
+#         if len(m[i]) != padrao:
+#             return False
+#     return True
 
-def soma_linhas(m):
-    if eh_matriz_retangular(m) == False:
-        return None
-    soma = []
-    for i in range(len(m)):
-        soma.append(sum(m[i]))
-    return soma
+# def soma_linhas(m):
+#     if eh_matriz_retangular(m) == False:
+#         return None
+#     soma = []
+#     for i in range(len(m)):
+#         soma.append(sum(m[i]))
+#     return soma
 
-def soma_colunas(m):
-    if eh_matriz_retangular(m) == False:
-        return None
-    soma = []
-    for i in range (len(m[0])):
-        soma.append(m[0][i] + m[1][i])
-    return soma
+# def soma_colunas(m):
+#     if eh_matriz_retangular(m) == False:
+#         return None
+#     soma = []
+#     for i in range (len(m[0])):
+#         soma.append(m[0][i] + m[1][i])
+#     return soma
 
 
-m = [[1, 2, 3], [4, 5, 6,], [1]]
+# m = [[1, 2, 3], [4, 5, 6,]]
 
-print(eh_matriz_retangular(m))
-print(soma_linhas(m))
-print(soma_colunas(m))
+# print(eh_matriz_retangular(m))
+# print(soma_linhas(m))
+# print(soma_colunas(m))
+# ==============================================================================
+# ATIVIDADE 10 - funções
+# ==============================================================================
+# def parse_venda(linha):
+#     partes = linha.split(';')
+#     return partes[0].strip(), int(partes[1])
+
+# def consolidar_vendas(linhas):
+#     dic = {}
+#     for i in linhas:
+#         try:
+#             partes = parse_venda(i)
+#             produto = partes[0]
+#             quantidade = partes[1]
+#             if produto in dic:
+#                 dic[produto] += quantidade
+#             else:
+#                 dic[produto] = quantidade
+#         except (IndexError, ValueError):
+#             continue
+#     return dic
+
+# def listar_consolidado(consolidado):
+#     return sorted(consolidado.items())
+        
+        
+# linhas = ["arroz;2", " feijao;1", "arroz;3", "invalido", "carne;X"]
+# consolidado = consolidar_vendas(linhas)
+# print(consolidado)
+# print(listar_consolidado(consolidado))
+
+        
