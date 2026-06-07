@@ -32,5 +32,21 @@ moduloRemover.remove();
 
 const novoItem = document.createElement('li');
 
-novoItem.textContent('Modulo criado pelo js');
+novoItem.textContent = 'Modulo criado pelo js';
 modulos.appendChild(novoItem);
+
+const input = document.getElementById('input-modulo');
+const botao = document.getElementById('btn-adicionar');
+botao.addEventListener('click', function () {
+  const textoDigitado = input.value;
+
+  if (textoDigitado !== '') {
+    const li = document.createElement('li');
+    li.textContent = textoDigitado;
+    modulos.appendChild(li);
+    input.value = '';
+    input.focus();
+  } else {
+    alert('digita mano, loco lesado');
+  }
+});
