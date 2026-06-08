@@ -635,37 +635,37 @@
 # ==============================================================================
 # ATIVIDADE 09 - funções
 # ==============================================================================
-def eh_matriz_retangular(m):
-    if m == []:
-        return False
-    padrao = len(m[0])
-    for i in range (len(m)):
-        if len(m[i]) != padrao:
-            return False
-    return True
+# def eh_matriz_retangular(m):
+#     if m == []:
+#         return False
+#     padrao = len(m[0])
+#     for i in range (len(m)):
+#         if len(m[i]) != padrao:
+#             return False
+#     return True
 
-def soma_linhas(m):
-    if eh_matriz_retangular(m) == False:
-        return None
-    soma = []
-    for i in range(len(m)):
-        soma.append(sum(m[i]))
-    return soma
+# def soma_linhas(m):
+#     if eh_matriz_retangular(m) == False:
+#         return None
+#     soma = []
+#     for i in range(len(m)):
+#         soma.append(sum(m[i]))
+#     return soma
 
-def soma_colunas(m):
-    if eh_matriz_retangular(m) == False:
-        return None
-    soma = []
-    for i in range (len(m[0])):
-        soma.append(m[0][i] + m[1][i])
-    return soma
+# def soma_colunas(m):
+#     if eh_matriz_retangular(m) == False:
+#         return None
+#     soma = []
+#     for i in range (len(m[0])):
+#         soma.append(m[0][i] + m[1][i])
+#     return soma
 
 
-m = [[1, 2, 3], [4, 5, 6,]]
+# m = [[1, 2, 3], [4, 5, 6,]]
 
-print(eh_matriz_retangular(m))
-print(soma_linhas(m))
-print(soma_colunas(m))
+# print(eh_matriz_retangular(m))
+# print(soma_linhas(m))
+# print(soma_colunas(m))
 # ==============================================================================
 # ATIVIDADE 10 - funções
 # ==============================================================================
