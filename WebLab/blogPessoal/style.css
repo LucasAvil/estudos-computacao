@@ -59,14 +59,19 @@ header {
     text-decoration: none;
     color: var(--cor-suporte);
     padding: 10px 15px;
-    transition: color 0.2s;
+    transition: all 0.3s ease;
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 
 }
 
 #menu-navegacao a:hover {
     color: var(--cor-secundaria-hover);
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
 }
 
+#menu-navegacao a:active {
+    box-shadow: none;
+}
 
 
 .subtitulo {
@@ -153,6 +158,10 @@ a {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
 }
 
+#botao-tema:active {
+    transform: scale(0.9);
+    box-shadow: none;
+}
 
 .timeline {
     position: relative;
@@ -252,39 +261,160 @@ a {
 
 table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    font-size: 14px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--cor-secundaria);
+    border: 2px solid var(--cor-suporte-vermelho);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 12px 48px rgba(0, 0, 0, 0.9);
 }
 
 th {
     background-color: var(--cor-suporte-vermelho);
-    color: #FFFFFF;
+    color: var(--cor-suporte);
     font-weight: bold;
     text-align: left;
-    padding: 12px;
+    padding: 16px;
 }
 
 td {
-    padding: 12px;
+    padding: 16px;
     border-bottom: 1px solid var(--cor-suporte-vermelho);
     color: var(--cor-suporte);
 }
 
 .bloco-experiencias ul {
     list-style-type: square;
-    padding-left: 20px;
-    margin: 15px 0 30px 0;
+    list-style-position: inside;
+    text-align: center;
+    padding: 0;
+    margin: 15px auto 40px auto;
+    max-width: 600px;
 
 }
 
 .bloco-experiencias li {
     margin-bottom: 15px;
-    color: var(--cor-primaria);
+    color: var(--cor-titulo);
+    line-height: 1.6;
 }
 
 .bloco-experiencias h3, .bloco-competencias h3 {
     color: var(--cor-suporte-vermelho);
-    margin-bottom: 10px;
-    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.bloco-competencias {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    width: 100%;
+    max-width: 700px;
+    flex-direction: column;
+}
+
+.bloco-competencias tr:last-child td{
+    border-bottom: none;
+}
+
+.form-estilizado {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.grupo-input label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--cor-suporte);
+}
+
+.grupo-input input, .grupo-input textarea {
+    padding: 12px;
+    border: 1px solid var(--cor-suporte-vermelho);
+    border-radius: 8px;
+    background-color: var(--cor-primaria);
+    color: var(--cor-titulo);
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.grupo-input input:focus, .grupo-input textarea:focus {
+    border-color: var(--cor-secundaria-hover);
+}
+
+
+#botao-enviar {
+    padding: 12px;
+    background-color: var(--cor-suporte-vermelho);
+    color: var(--cor-suporte);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+#botao-enviar:hover {
+    background-color: var(--cor-secundaria-hover);
+    transform: scale(1.03);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
+}
+
+#botao-enviar:active {
+    transform: scale(1.0);
+    box-shadow: none;
+}
+
+.mensagem-erro {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+    height: 15px;
+}
+
+.controles-acessibilidade {
+    display: flex;
+    gap: 5px;
+}
+
+.controles-acessibilidade button {
+    background-color: var(--cor-suporte-vermelho);
+    color: var(--cor-suporte);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: transform 0.1s ease;
+}
+
+.controles-acessibilidade button:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
+    background-color: var(--cor-secundaria-hover);
+    transition: all 0.3s ease;
+}
+
+.controles-acessibilidade button:active {
+    transform: scale(0.9);
+    transition: all 0.3s ease;
 }

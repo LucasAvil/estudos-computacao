@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato</title>
     <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-        <header class="header">
+    <header class="header">
         <div id="menu-navegacao">
             <nav>
                 <a href="index.html" id="titulo-header">Lucas Fonseca</a>
@@ -19,8 +21,44 @@
                 <a href="projetos.html">Projetos</a>
             </nav>
         </div>
+        <div class="controles-acessibilidade">
+            <button id="btn-aumentar">A+</button>
+            <button id="btn-diminuir">A-</button>
+        </div>
     </header>
+
+    <section class="caixas secao-contato">
+        <h2 class="subtitulo" style="text-align: center;">Entre em Contato</h2>
+        <p style="text-align: center; margin-bottom: 20px;">Preencha os dados abaixo para enviar uma mensagem.</p>
+
+        <form id="formulario-contato" class="form-estilizado">
+
+            <div class="grupo-input">
+                <label for="nome">Seu nome:</label>
+                <input type="text" id="nome" placeholder="Escreva aqui...">
+                <span class="mensagem-erro" id="erro-nome"></span>
+            </div>
+
+            <div class="grupo-input">
+                <label for="email">Seu e-mail:</label>
+                <input type="email" id="email" placeholder="Escreva aqui...">
+                <span class="mensagem-erro" id="erro-email"></span>
+            </div>
+
+            <div class="grupo-input">
+                <label for="mensagem">Sua mensagem:</label>
+                <textarea id="mensagem" rows="5" placeholder="Escreva aqui..."></textarea>
+                <span class="mensagem-erro" id="erro-mensagem"></span>
+            </div>
+
+            <button type="submit" id="botao-enviar">Enviar</button>
+
+            <p id="mensagem-sucesso" style="display: none; color: green; text-align: center; margin-top: 15px;">Mensagem
+                enviada com sucesso!</p>
+        </form>
+    </section>
     <button id="botao-tema">◐</button>
     <script src="script.js"></script>
 </body>
+
 </html>
