@@ -696,5 +696,7 @@
 # consolidado = consolidar_vendas(linhas)
 # print(consolidado)
 # print(listar_consolidado(consolidado))
-
+# ==============================================================================
+# ATIVIDADE 1 - prova teste1
+# ==============================================================================
         

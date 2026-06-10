@@ -1,35 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>type of</title>
-</head>
-<body>
-    <p> se voce é um fodinha, deixe logo seu joinha (f12)</p>
+  </head>
+  <body>
+    <p>se voce é um fodinha, deixe logo seu joinha (f12)</p>
     <script>
-        console.log('---- tipos de dados ----');
-        console.log(typeof('benjamin arhin'));
-        console.log(typeof(44));
-        console.log(typeof(44.3));
-        console.log(typeof true);
-        console.log(typeof([]))
+      console.log('---- tipos de dados ----');
+      console.log(typeof 'benjamin arhin');
+      console.log(typeof 44);
+      console.log(typeof 44.3);
+      console.log(typeof true);
+      console.log(typeof []);
 
-        function dobrar (valor){
-            if(typeof valor !== 'number'){
-                return "Erro mortal! texto detectado";
-                
-            }
-            return valor * 2
-
+      function dobrar(valor) {
+        if (typeof valor !== 'number') {
+          return 'Erro mortal! texto detectado';
         }
+        return valor * 2;
+      }
 
-        console.log(dobrar(42))
-        console.log(dobrar("42"))
-        console.log(dobrar('bebe'))
-
-        
-
+      console.log(dobrar(42));
+      console.log(dobrar('42'));
     </script>
-</body>
+  </body>
 </html>
