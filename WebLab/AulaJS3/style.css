@@ -1,0 +1,208 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   VARIÁVEIS CSS (Custom Properties)
+   ──────────────────────────────────────────────────────────────────────────
+   Definimos as cores como variáveis usando --nome-da-variavel dentro de :root.
+   :root representa o elemento <html>, então as variáveis ficam disponíveis
+   em TODA a página.
+
+   O grande benefício: para trocar o tema inteiro, basta redefinir as
+   variáveis. Todos os elementos que usam var(--cor-*) atualizam sozinhos.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root {
+  --cor-fundo: #ffffff;
+  --cor-texto: #222222;
+  --cor-botao-fundo: #e0e0e0;
+  --cor-botao-texto: #222222;
+  --cor-botao-hover: #c8c8c8;
+  --cor-destaque: #0066cc;
+  --cor-resultado-fundo: #f5f5f5;
+}
+
+/* ── Exemplo 1: Modo Escuro ───────────────────────────────────────────────
+   Quando o <body> receber a classe "dark" (adicionada pelo JS),
+   estas variáveis SUBSTITUEM as do :root.
+   Tudo que usa var(--cor-*) muda automaticamente — sem tocar no HTML.
+   ──────────────────────────────────────────────────────────────────────── */
+body.dark {
+  --cor-fundo: #1a1a2e;
+  --cor-texto: #e0e0e0;
+  --cor-botao-fundo: #16213e;
+  --cor-botao-texto: #e0e0e0;
+  --cor-botao-hover: #0f3460;
+  --cor-destaque: #e94560;
+  --cor-resultado-fundo: #16213e;
+}
+
+/* ── Exemplo 3: Alto Contraste ───────────────────────────────────────────
+   Fundo preto + texto amarelo = máximo contraste visual.
+   Auxilia pessoas com baixa visão ou daltonismo.
+   ──────────────────────────────────────────────────────────────────────── */
+body.alto-contraste {
+  --cor-fundo: #000000;
+  --cor-texto: #ffff00;
+  --cor-botao-fundo: #000000;
+  --cor-botao-texto: #ffff00;
+  --cor-botao-hover: #333300;
+  --cor-destaque: #ffffff;
+  --cor-resultado-fundo: #111111;
+}
+
+/* ── Exemplo 6: Temas de Cor ─────────────────────────────────────────────
+   Cada tema redefine as variáveis com uma paleta diferente.
+   A lógica no JS garante que apenas um tema esteja ativo por vez.
+   ──────────────────────────────────────────────────────────────────────── */
+body.tema-roxo {
+  --cor-fundo: #f3e8ff;
+  --cor-texto: #3b0764;
+  --cor-botao-fundo: #a855f7;
+  --cor-botao-texto: #ffffff;
+  --cor-botao-hover: #7c3aed;
+  --cor-destaque: #7c3aed;
+  --cor-resultado-fundo: #e9d5ff;
+}
+
+body.tema-verde {
+  --cor-fundo: #f0fdf4;
+  --cor-texto: #14532d;
+  --cor-botao-fundo: #22c55e;
+  --cor-botao-texto: #ffffff;
+  --cor-botao-hover: #16a34a;
+  --cor-destaque: #16a34a;
+  --cor-resultado-fundo: #dcfce7;
+}
+
+body.tema-laranja {
+  --cor-fundo: #fff7ed;
+  --cor-texto: #7c2d12;
+  --cor-botao-fundo: #f97316;
+  --cor-botao-texto: #ffffff;
+  --cor-botao-hover: #ea580c;
+  --cor-destaque: #ea580c;
+  --cor-resultado-fundo: #ffedd5;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   ESTILOS BASE — usam as variáveis definidas acima com var()
+   ══════════════════════════════════════════════════════════════════════════ */
+body {
+  font-family: sans-serif;
+  margin: 40px;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  /* transition suaviza a troca de tema (0.3s = 300 milissegundos) */
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+input {
+  font-size: 1.2rem;
+  width: 80px;
+  padding: 4px;
+  margin-right: 8px;
+  background-color: var(--cor-resultado-fundo);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-destaque);
+  border-radius: 4px;
+}
+
+button {
+  font-size: 1.2rem;
+  padding: 6px 14px;
+  margin: 4px;
+  cursor: pointer;
+  background-color: var(--cor-botao-fundo);
+  color: var(--cor-botao-texto);
+  border: 1px solid var(--cor-destaque);
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: var(--cor-botao-hover);
+}
+
+#resultado {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 16px;
+  padding: 8px 12px;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: var(--cor-resultado-fundo);
+  color: var(--cor-texto);
+  transition: background-color 0.3s;
+}
+
+/* ── Exemplo 4: Botão de operador ativo ──────────────────────────────────
+   A classe "ativo" é adicionada via JS ao botão que foi clicado.
+   outline cria uma borda externa sem deslocar os outros elementos.
+   ──────────────────────────────────────────────────────────────────────── */
+button.ativo {
+  outline: 3px solid var(--cor-destaque);
+  outline-offset: 2px;
+}
+
+/* ── Exemplo 5: Animação do resultado ────────────────────────────────────
+   @keyframes define os "quadros" da animação: como o elemento evolui
+   do início (0%) ao meio (50%) e ao fim (100%).
+   A classe "animar" é adicionada e removida pelo JS para disparar
+   a animação toda vez que um resultado é calculado.
+   ──────────────────────────────────────────────────────────────────────── */
+@keyframes piscar {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.12);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#resultado.animar {
+  /* animation: nome duração forma-de-aceleração */
+  animation: piscar 0.4s ease;
+}
+
+/* ── Exemplo 7: Layout dos botões de operação ────────────────────────────
+   .grupo-botoes é o container dos botões de operação no HTML.
+   Por padrão exibe os botões em linha (flex-direction: row).
+   Quando o <body> tiver a classe "layout-vertical", os botões
+   ficam empilhados em coluna, simulando um layout de celular.
+   ──────────────────────────────────────────────────────────────────────── */
+.grupo-botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+body.layout-vertical .grupo-botoes {
+  /* flex-direction: column empilha os filhos na vertical */
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* ── Barra de controles ───────────────────────────────────────────────────
+   Container dos botões de acessibilidade e troca de tema no topo da página.
+   ──────────────────────────────────────────────────────────────────────── */
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--cor-destaque);
+  transition: border-color 0.3s;
+}
+
+.controles button {
+  font-size: 0.95rem;
+  padding: 4px 10px;
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora — Prática de Eventos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ════════════════════════════════════════════════════════════════════
+       BARRA DE CONTROLES
+       Cada botão aqui aciona um exemplo de manipulação de CSS via JS.
+       Eles ficam agrupados numa <div class="controles"> para estilização.
+       ════════════════════════════════════════════════════════════════════ -->
+    <div class="controles">
+      <!-- Exemplo 1: Alterna modo claro / escuro -->
+      <button id="btn-dark">🌙 Dark / Claro</button>
+
+      <!-- Exemplo 2: Acessibilidade — ajuste do tamanho de fonte -->
+      <button id="btn-fonte-menos" title="Diminuir fonte">A−</button>
+      <button id="btn-fonte-mais" title="Aumentar fonte">A+</button>
+
+      <!-- Exemplo 3: Alto contraste para acessibilidade visual -->
+      <button id="btn-contraste">⬛ Alto Contraste</button>
+
+      <!-- Exemplo 6: Seleção de temas de cor -->
+      <button id="btn-tema-padrao">⚪ Padrão</button>
+      <button id="btn-tema-roxo">🟣 Roxo</button>
+      <button id="btn-tema-verde">🟢 Verde</button>
+      <button id="btn-tema-laranja">🟠 Laranja</button>
+
+      <!-- Exemplo 7: Alterna layout dos botões entre linha e coluna -->
+      <button id="btn-layout">⇅ Layout</button>
+    </div>
+
+    <h2>Calculadora</h2>
+
+    <input type="number" id="num1" placeholder="0" />
+    <input type="number" id="num2" placeholder="0" />
+
+    <!-- Exemplo 4 e 7: os botões de operação ficam dentro de .grupo-botoes
+       para que o JS possa controlar o layout flexbox pelo <body> -->
+    <div class="grupo-botoes">
+      <button id="btn-soma">+</button>
+      <button id="btn-subtracao">−</button>
+      <button id="btn-multiplicacao">×</button>
+      <button id="btn-divisao">÷</button>
+      <button id="btn-limpar">Limpar</button>
+    </div>
+
+    <!-- Exemplo 5: a classe "animar" será adicionada aqui pelo JS
+       para disparar a animação CSS a cada resultado calculado -->
+    <p id="resultado">—</p>
+
+    <script src="calculadora.js"></script>
+  </body>
+</html>
