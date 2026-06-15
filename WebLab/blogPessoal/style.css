@@ -83,6 +83,7 @@ header {
   border: 2px solid var(--cor-suporte-vermelho);
   border-radius: 12px;
   box-shadow: 0px 12px 48px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
 .container-projetos {
@@ -338,9 +339,8 @@ td {
   border-color: var(--cor-secundaria-hover);
 }
 
-#botao-enviar,
-.botao-receitas {
-  padding: 25px, 20px;
+#botao-enviar {
+  padding: 12px;
   background-color: var(--cor-suporte-vermelho);
   color: var(--cor-suporte);
   border: none;
@@ -350,23 +350,15 @@ td {
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  text-decoration: none;
 }
 
-#botao-enviar:hover,
-.botao-receitas:hover {
+#botao-enviar:hover {
   background-color: var(--cor-secundaria-hover);
   transform: scale(1.03);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-#botao-enviar:active,
-.botao-receitas:active {
+#botao-enviar:active {
   transform: scale(1);
   box-shadow: none;
 }
@@ -407,11 +399,12 @@ td {
   transition: all 0.3s ease;
 }
 
-.secao-receitas {
+.secao-receitas, #receita-grid {
   text-align: center;
   padding: 40px 20px;
   max-width: 800px;
   margin: 0 auto;
+  line-height: 2rem;
 }
 
 .grid-receitas {
@@ -420,4 +413,34 @@ td {
   gap: 20px;
   max-width: 600px;
   margin: 30px auto 0 auto;
+}
+
+
+.botao-receita {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--cor-suporte-vermelho);
+    color: var(--cor-suporte);
+    padding: 25px 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform all ease 0.2s;
+}
+
+.botao-receita:hover {
+  background-color: var(--cor-secundaria-hover);
+  transform: scale(1.03);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  color: var(--cor-suporte);
+}
+
+.botao-receita:active {
+  transform: scale(1);
+  box-shadow: none;
 }
