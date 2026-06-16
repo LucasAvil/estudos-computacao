@@ -754,14 +754,62 @@
 # ==============================================================================
 # QUESTÃO 2 - prova teste 2
 # ==============================================================================
-menu = int(input('Escolha uma moeda para converter para real: \n1. Dólar Americano para Real\n2. Dólar Canadense para Real\n3. Euro para Real\n'))
-reais = float(input('digite a quantidade da moeda requisitada: '))
+# menu = int(input('Escolha uma moeda para converter para real: \n1. Dólar Americano para Real\n2. Dólar Canadense para Real\n3. Euro para Real\n'))
+# reais = float(input('digite a quantidade da moeda requisitada: '))
+# if menu == 1:
+#     total = reais * 5.54
+# elif menu == 2:
+#     total = reais * 4.07
+# elif menu == 3:
+#     total = reais * 6.40
+# else:
+#     print('opção inválida!')
+# print(f'Você precisará de R${total:.2f} para concluir o cambio')
+# ==============================================================================
+# QUESTÃO 1 - prova teste 3
+# ==============================================================================
+# lista = []
+# total = 0
+# for i in range (1, 4):
+#     dicio = {}
+#     nome = input(f'nome do produto {i}: ').strip()
+#     preco = float(input(f'preço do {nome}: '))
+#     quant = int(input('quantidade em estoque: '))
+
+#     dicio['Nome'] = nome
+#     dicio['Preço'] = preco
+#     dicio['Estoque'] = quant
+#     lista.append(dicio)
+
+# for i in lista:
+#     print(f" {i['Nome']} - Preço: R$ {i['Preço']:.2f} - Estoque: {i['Estoque']} unidades")
+    
+#     total += i['Preço'] * i['Estoque']
+# print(f'Valor total em estoque: R$ {total:.2f}')
+# ==============================================================================
+# QUESTÃO 2 - prova teste 3
+# ==============================================================================
+menu = int(input('Escolha o seu destino: \n1. Florianópolis\n2. Gramado\n3. Rio de Janeiro\nOpção: '))
+n_viajantes = int(input('Digite o número de viajantes: '))
+n_diarias = int(input('Digite o número de dias: '))
+
+
 if menu == 1:
-    total = reais * 5.54
+    destino = "Florianópolis"
+    valor_diaria = 120.0
 elif menu == 2:
-    total = reais * 4.07
+    destino = "Gramado"
+    valor_diaria = 180.0
 elif menu == 3:
-    total = reais * 6.40
+    destino = "Rio de Janeiro"
+    valor_diaria = 150.0
 else:
-    print('opção inválida!')
-print(f'Você precisará de R${total:.2f} para concluir o cambio')
+    destino = None
+
+if destino:
+    valor_final = n_viajantes * n_diarias * valor_diaria
+    print(f'\nDestino: {destino}')
+    print(f'Valor da diária por pessoa: R$ {valor_diaria:.2f}')
+    print(f'Valor final da viagem: R$ {valor_final:.2f}')
+else:
+    print('Opção inválida!')
