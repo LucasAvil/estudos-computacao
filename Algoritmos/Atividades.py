@@ -697,6 +697,71 @@
 # print(consolidado)
 # print(listar_consolidado(consolidado))
 # ==============================================================================
-# ATIVIDADE 1 - prova teste1
+# QUESTÃO 1 - prova teste 1
 # ==============================================================================
-        
+# total = 0
+# tempo = (input("digite as horas e os minutos separados por ':' ex:3:34: "))
+# tempo_split = tempo.split(':')
+# horas = int(tempo_split[0])
+# minutos = int(tempo_split[1])
+# if horas <= 2:
+#     total += 5
+
+# else:
+#     total += 5 + (horas - 2) * 3
+
+# if minutos <= 30 and horas >= 2:
+#     total += 1.5
+
+# if minutos >= 30 and horas >= 2:
+#     total += 3
+
+# print(total)
+# ==============================================================================
+# QUESTÃO 2 - prova teste 1
+# ==============================================================================
+# pontualidade = float(input('digite a pontualidade do funcionario: '))
+# produtividade = float(input('digite a produtividade do funcionario (0 - 10): '))
+
+# if pontualidade >= 90 and produtividade >= 8:
+#     desempenho = 'excelente'
+# elif pontualidade >= 90 and produtividade < 8:
+#     desempenho = 'bom'
+# elif 70 <= pontualidade <= 89 and produtividade >= 6:
+#     desempenho = 'regular'
+# elif 70 <= pontualidade <= 89 and produtividade < 6:
+#     desempenho = 'ruim'
+# else:
+#     desempenho = 'insatisfatório'
+
+# print(f'o desempenho do funcionário é:{desempenho}')
+# ==============================================================================
+# QUESTÃO 1 - prova teste 2
+# ==============================================================================
+# dicio = {}
+# for i in range (1, 6):
+#     nome = input(f'Nome do aluno {i}: ').strip()
+#     nota1 = float(input(f'Nota 1 de {nome}: '))
+#     nota2 = float(input(f'Nota 2 de {nome}: '))
+#     media = (nota1 + nota2) / 2
+#     if media >= 6:
+#         dicio[nome] = f'{media} - Aprovado'
+#     else:
+#         dicio[nome] = f'{media} - Exame'
+
+# for estudante, resultado in dicio.items():
+#     print(f'Estudante: {estudante} | {resultado}')
+# ==============================================================================
+# QUESTÃO 2 - prova teste 2
+# ==============================================================================
+menu = int(input('Escolha uma moeda para converter para real: \n1. Dólar Americano para Real\n2. Dólar Canadense para Real\n3. Euro para Real\n'))
+reais = float(input('digite a quantidade da moeda requisitada: '))
+if menu == 1:
+    total = reais * 5.54
+elif menu == 2:
+    total = reais * 4.07
+elif menu == 3:
+    total = reais * 6.40
+else:
+    print('opção inválida!')
+print(f'Você precisará de R${total:.2f} para concluir o cambio')
