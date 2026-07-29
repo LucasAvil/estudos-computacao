@@ -3,13 +3,14 @@
 using namespace std;
 
 int main() {
-    int n,i = 1,result;
-    cout << "Digite um numero: ";
+    int n;
+    
     cin >> n;
-    while (i <= 10){
-        result = n * i;
-        cout << n << " X " << i << " = " << result << endl;
-        i++;
+    
+    for (int i = 1; i <= 10; i++) {
+        
+        cout << i << " x " << n << " = " << i * n << endl;
     }
+    
     return 0;
 }
