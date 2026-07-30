@@ -793,7 +793,6 @@
 # n_viajantes = int(input('Digite o número de viajantes: '))
 # n_diarias = int(input('Digite o número de dias: '))
 
-
 # if menu == 1:
 #     destino = "Florianópolis"
 #     valor_diaria = 120.0
@@ -813,51 +812,3 @@
 #     print(f'Valor final da viagem: R$ {valor_final:.2f}')
 # else:
 #     print('Opção inválida!')
-# ==============================================================================
-# QUESTÃO 1 - atividade recursao
-# ==============================================================================
-# def fatorial (n):
-#     if n < 0:
-#         raise ValueError
-#     if n == 0:
-#         return 1
-#     return n * fatorial(n - 1)
-
-# print(fatorial(5))
-# ==============================================================================
-# QUESTÃO 2 - atividade recursao
-# ==============================================================================
-# def soma_ate(n):
-#     if n <= 0:
-#         return 0
-#     else:
-#         return n + soma_ate(n - 1)
-# print(soma_ate(5))
-# ==============================================================================
-# QUESTÃO 3 - atividade recursao
-# ==============================================================================
-# def contar_digitos(n):
-#     n = abs(n)
-#     if n < 10:
-#         return 1
-#     return 1 + contar_digitos(n//10)
-# print(contar_digitos(7))
-# ==============================================================================
-# QUESTÃO 4 - atividade recursao
-# ==============================================================================
-# def inverter_string(texto):   
-#     if len(texto) <= 1:
-#         return texto
-#     return texto[-1] + inverter_string(texto[:-1])
-# print(inverter_string('python'))
-# ==============================================================================
-# QUESTÃO 5 - atividade recursao
-# ==============================================================================
-def soma_lista(valores):
-    if len(valores) == 0:
-        return 0
-    return valores[len(valores) - 1] + soma_lista(valores[:-1])
-
-print(soma_lista([10,20,30,40,50]))
-
-    
