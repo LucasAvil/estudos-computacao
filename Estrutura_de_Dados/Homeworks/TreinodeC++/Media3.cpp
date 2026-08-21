@@ -12,17 +12,17 @@ int main() {
         cout << "Aluno em exame." << endl;
         cin >> exame;
         media = (media + exame) / 2;
-        cout << "Nota do exame: " << fixed << setprecision(1) << media << endl;
-        cout << "Media final: " << fixed << setprecision(1) << media << endl;
+        cout << "Nota do exame: " << fixed << setprecision(1) << exame << endl;
         if (media >= 5){
-            cout << "Aluno aprovado" << endl;
+            cout << "Aluno aprovado." << endl;
         } else {
             cout << "Aluno reprovado." << endl;
         }
+        cout << "Media final: " << fixed << setprecision(1) << media << endl;
     } else if (media < 5){
         cout << "Aluno reprovado." << endl;
     } else if (media >= 7){
-        cout << "Aluno aprovado" << endl;
+        cout << "Aluno aprovado." << endl;
     }
 
     return 0;
