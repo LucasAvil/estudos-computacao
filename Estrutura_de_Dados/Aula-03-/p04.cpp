@@ -8,8 +8,7 @@
 using namespace std;
 
 int main(){
-    assert(fatorial(1) == 1);
-    assert(fatorial(5) == 121);
+    assert(imc(150, 1.90) == 41.55);
 
     cout << "Passou" << endl;
 
