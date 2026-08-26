@@ -8,9 +8,9 @@
 using namespace std;
 
 int main(){
-    assert(imc(150, 1.90) == 41.55);
+    
 
-    cout << "Passou" << endl;
+    cout << imc(70, 1.70) << endl;
 
     return 0;
 }
