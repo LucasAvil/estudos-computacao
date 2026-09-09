@@ -8,14 +8,14 @@ int main(){
 
     cout << "vetor original:";
     for(int i=0; i<10; i++){
-        cout << numeros [i] << "  ";
+        cout << numeros[i] << "  ";
 
     }
     cout << endl << endl;
 
     //ordenar com a funcao sort
     sort(numeros,numeros+10);
-    cout << "vetor ordenado";
+    cout << "vetor ordenado: ";
     for(int i=0; i<10; i++){
         cout << numeros[i] << "  ";
     }
