@@ -24,19 +24,19 @@ int fatorial(int num){
     return aux;
 }
 
-int cf(int C){
+float cf(float C){
     
-    double res = (C + 32) * 1.8;
+    float res = (C + 32) * 1.8;
     return res;
 }
 
-int fc(int F){
-    double res = (F - 32) / 1.8;
+float fc(float F){
+    float res = (F - 32) / 1.8;
     return res;
 }
 
-double imc(double peso, double altura){
-    double res = peso / (pow(altura, 2));
+float imc(float peso, float altura){
+    float res = peso / (pow(altura, 2));
     return res;
 
 }

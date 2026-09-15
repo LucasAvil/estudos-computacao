@@ -18,6 +18,5 @@ int main (){
     int x = 10;
     int y = 2;
     cout << adiciona(x, y) << endl;
-    imprimir(adiciona(x,y));
     return 0;
 }
