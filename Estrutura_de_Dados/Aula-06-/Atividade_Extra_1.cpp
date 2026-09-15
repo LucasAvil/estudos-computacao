@@ -21,6 +21,7 @@ int main(){
     cin >> N;
     carro garagem[N];
     for (int i =0; i < 5; i++){
+        //getline(cin,garagem[i].nome); seria assim se usasse o getline, mas teria que ser um blocao só e cada linha seria um cin
         cin >> garagem[i].nome >> garagem[i].valor >> garagem[i].ano;
     };
     sort(garagem, garagem+N, ordena);

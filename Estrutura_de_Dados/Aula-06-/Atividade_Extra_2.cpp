@@ -23,7 +23,6 @@ bool ordena(const produto &a, const produto &b){
     return false;
 };
 
-
 int main(){
     int N;
     cin >> N;
