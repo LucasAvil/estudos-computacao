@@ -13,11 +13,10 @@ def resolver():
         descartadas = []
 
         while len(pilha) >= 2:
-            pilha.popleft()
             descartadas.append(str(pilha.popleft()))
 
             pilha.append(pilha.popleft())
-        print(f'Discarded cards: {', '.join(descartadas)}')
-        print(f'Remaining card: {pilha[0]}')
+        print(f"Discarded cards: {', '.join(descartadas)}")
+        print(f"Remaining card: {pilha[0]}")
 
 resolver()

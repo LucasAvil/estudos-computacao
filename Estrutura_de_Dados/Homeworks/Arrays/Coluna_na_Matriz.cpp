@@ -5,7 +5,7 @@ using namespace std;
 int main(){
     int C;
     char T;
-    float M[12][12];
+    double M[12][12];
     double soma = 0;
     cin >> C >> T;
 
@@ -18,10 +18,10 @@ int main(){
         soma += M[i][C];
     }
     if (T == 'S'){
-        cout << soma << endl;
+        cout << fixed << setprecision(1) << soma << endl;
 
     } else if (T == 'M'){
-        cout << soma / 12 << endl;
+        cout << fixed << setprecision(1) << soma / 12 << endl;
     }
 
 
