@@ -21,6 +21,7 @@ int main(){
         cout << "Topo: " << pilha.top() << endl;
         pilhabackup.push(pilha.top());
         cout << "Topo backup: " << pilhabackup.top() << endl;
+        // a pilha backup vai ser a invertida da normal
         pilha.pop();
 
     }while(!pilha.empty());
