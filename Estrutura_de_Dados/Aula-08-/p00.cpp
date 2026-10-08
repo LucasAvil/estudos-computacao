@@ -18,7 +18,6 @@ int main(){
     fila.push(500);
     fila.push(600);
 
-
     cout << "tamanho: " << fila.size() << endl;
     cout << "front: " << fila.front() << endl;
     cout << "back: " << fila.back() << endl;

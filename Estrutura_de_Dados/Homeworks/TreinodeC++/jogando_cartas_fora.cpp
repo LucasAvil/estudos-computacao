@@ -1,37 +1,30 @@
 #include <iostream>
-#include <stack>
+#include <queue>
+#include <string>
 using namespace std;
-//FIZ TUDO ERRADO ERA UM PROBLEMA DE FILA NAO DE PILHA
-//COMO ESTOU ESTUDANDO PILHA, VOU DEIXAR PARA COMPLETAR
-//QUANDO EU COMEÇAR A ESTUDAR FILAS
-//FIZ UMA GAMBIARRA TA CHEIO DE ERRO DE ACESSO VAZIO
 
 int main(){
     int N;
     while(cin >> N && N != 0){
         string s = "";
-        stack<int> pilha1;
-        stack<int> pilha2;
-        for (int i = 0; i < N; i++){
-            pilha.push(i);
-        }
-        while(pilha1.size() + pilha2.size() != 1){
-            while (!pilha1.empty()){
-                s += pilha1.top();
-                s += ", ";
-                pilha1.pop();
-                pilha2.push(pilha1.top())
-                pilha1.pop();
-            }
-            while (!pilha2.empty()){
-                s += pilha2.top();
-                s += ", ";
-                pilha2.pop();
-                pilha1.push(pilha2.top())
-                pilha2.pop()
-            }
-        }
+        queue<int> fila;
+        for (int i = 1; i <= N; i++){
+            fila.push(i);
 
+        } 
+        while (fila.size() > 1){
+            s += to_string(fila.front());
+            fila.pop();
+            if (fila.size() > 1){
+                s += ", ";
+                fila.push(fila.front());
+                fila.pop();
+            }else{
+                break;
+            }
+        }
+        cout << "Discarded cards: " << s << endl;
+        cout << "Remaining card: " << fila.front() << endl;
     }
     return 0;
 }
