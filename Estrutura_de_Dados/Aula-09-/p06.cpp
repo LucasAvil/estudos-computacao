@@ -2,9 +2,9 @@
 using namespace std;
 
 void foo(){
-    int n=0;
+    int n=0; //alocacao automatica
     n++;
-    cout << n << endl;
+    cout << &n << " " << n << endl;
 
 }
 int main(){
@@ -12,6 +12,6 @@ int main(){
     foo();
     foo();
 
-    
+
     return 0;
 }

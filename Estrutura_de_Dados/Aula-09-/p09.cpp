@@ -18,6 +18,7 @@ int main(){
     int *p2 = new int;
     *p2 = 35;
     p2 = p1;
+    //o new int (35) vira um lixo de memoria, a referencia de acesso foi perdida (vazamento de memoria)
 
 
     return 0;

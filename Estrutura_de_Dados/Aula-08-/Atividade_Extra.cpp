@@ -3,8 +3,6 @@
 
 using namespace std;
 
-
-
 int main(){
     queue<string> filanorm;
     queue<string> filapri;

@@ -4,34 +4,28 @@
 
 using namespace std;
 
-struct Aluno {
+struct aluno {
     int nota;
     int pos_orig;
 };
 
-bool ordena(const Aluno &a, const Aluno &b) {
-    if (a.nota != b.nota) {
-        return a.nota > b.nota;
-    }
-    return a.pos_orig < b.pos_orig;
+bool ordena(const aluno &a, const aluno &b) {
+    return a.nota > b.nota;
 }
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
     int N;
     if (!(cin >> N)) return 0;
 
-    while (N--) {
+    for (int i = 0; i < N; i++) {
         int M;
         cin >> M;
-
-        vector<Aluno> vet(M);
+        vector<aluno> vet(M);
         for (int j = 0; j < M; j++) {
             cin >> vet[j].nota;
             vet[j].pos_orig = j;
         }
+
         sort(vet.begin(), vet.end(), ordena);
 
         int R = 0;
