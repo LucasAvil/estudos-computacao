@@ -72,6 +72,18 @@ namespace UPF {
             return p;
             
         }
+            int count(const std::string &s){
+                node *p = first;
+                int soma = 0;
+                    do{
+                        if(s == p->value){
+                            soma++;
+                        }
+                        p = p->next;
+
+                    }while(p->next != nullptr);
+                return soma;
+            }
     };
 
 }
